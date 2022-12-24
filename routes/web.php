@@ -17,17 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/listings', function () {
-    return view('listings', [
-        'listings' => Listing::all()
-
-    ]);
-});
-Route::get('/listing/{id}', function ($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)
-
-    ]);
+Route::get('/software', function () {
+    return view('software');
 });
 
 
