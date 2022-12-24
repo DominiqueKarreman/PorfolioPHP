@@ -1,0 +1,25 @@
+body {
+    background-color: #142c3c;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-image: url("http://www.melvinvivas.com/wp-content/uploads/2014/08/texture.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+
+}
+
+* {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+}

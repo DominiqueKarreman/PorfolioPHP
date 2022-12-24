@@ -23,16 +23,16 @@
 
             <div class="topnav">
                 <a class="active" href="#home">
-                    //Software Developer
+                    // Software Developer
                 </a>
                 <a class="active" href="#news">
-                    //Photo & Videography
+                    // Photo & Videography
                 </a>
                 <div class="nameDiv">
 
                     <h1 class="firstName">Dominique</h1>
-                    <p class="software">//Software Developer</p>
-                    <p class="p_h">//Photo / Videographer</p>
+                    <p class="software">// Software Developer</p>
+                    <p class="p_h">// Photo / Videographer</p>
                     <h1 class="lastName">Karreman</h1>
                 </div>
             </div>

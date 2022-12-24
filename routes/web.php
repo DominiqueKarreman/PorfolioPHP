@@ -21,4 +21,8 @@ Route::get('/software', function () {
     return view('software');
 });
 
+Route::get('/melvin', function () {
+    return view('melvin');
+});
+
 
