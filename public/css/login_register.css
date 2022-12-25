@@ -1,8 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    font-family: "Hanken Grotesk", sans-serif;
+    color: #374151;
+}
+body {
+    margin: 0;
+    background-color: #f3f4f6;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+}
+.mainCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    max-width: 35vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    width: 35%;
+    align-self: center;
+    /* From https://css.glass */
+    /* From https://css.glass */
+    background-color: white;
+    border-radius: 1vh;
 
-@import url('https://fonts.bunny.net/css?family=Nunito');
+    box-shadow: 0em 0.5em 0.5em rgba(0, 0, 0, 0.105);
+}
+.logo {
+    height: 10vh;
 
+    margin-bottom: 5vh;
+}
+.email_label {
+    font-size: 0.975rem;
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 600;
+    color: #374151;
+}
 
-@import 'variables';
+.textinput {
+    background-color: #f9fafb;
+    border-color: #d7d7d729;
+    border-width: 0.7px;
+    width: 30vw;
+    height: 6vh;
+    border-radius: 1vh;
+    margin-top: 1vh;
+    box-shadow: 0em 0.05em 0.05em rgba(0, 0, 0, 0.105);
+    font-size: 1vw;
+    font-family: "Hanken Grotesk", sans-serif;
 
+    padding-left: 1vw;
+    margin-bottom: 2vh;
+}
+.card-body {
+    margin-top: -4vh;
+}
 
-@import 'bootstrap/scss/bootstrap';
+input[type="checkbox"] {
+    position: relative;
+    border: 2px solid #374151;
+    border-radius: 0.25rem;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    margin: 0 0.6em 0 0;
+    outline: 0;
+    padding: 0 !important;
+    vertical-align: text-top;
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    opacity: 0.5;
+}
+
+input[type="checkbox"]:hover {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #374151;
+    opacity: 1;
+}
+
+input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 4px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    margin: -1px -1px 0 -1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+}
+
+.login {
+    border-radius: 0.375rem;
+    border: none;
+    padding: 1.5vh 5vh;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: #1f2937;
+    right: 35vw;
+    position: absolute;
+}
+
+.forgot {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    position: absolute;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.create {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    position: absolute;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+@media (min-width: 320px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .mainCont {
+        
+        max-width: 80vw;
+        
+        width: 80%;
+       
+    }
+}
+@media (min-width: 481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .mainCont {
+        
+        max-width: 80vw;
+        
+        width: 80%;
+       
+    }
+    .textinput {
+        
+        width: 60vw;
+        height: 6vh;
+        
+    }
+}
+@media (min-width: 641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .mainCont {
+        
+        max-width: 80vw;
+        
+        width: 80%;
+       
+    }
+    
+    .textinput {
+        
+        width: 60vw;
+        height: 6vh;
+        
+    }
+    .login {
+     
+        right: 20vw;
+         
+    }
+}
+@media (min-width: 961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .mainCont {
+        
+        max-width: 35vw;
+        
+        width: 35%;
+       
+    }
+    .textinput {
+        
+        width: 30vw;
+        height: 6vh;
+        
+    }
+    .login {
+     
+        right: 35vw;
+         
+    }
+}
+@media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+    .mainCont {
+        
+        max-width: 35vw;
+        
+        width: 35%;
+       
+    }
+    .textinput {
+        
+        width: 30vw;
+        height: 6vh;
+        
+    }
+    .login {
+     
+        right: 35vw;
+         
+    }
+}

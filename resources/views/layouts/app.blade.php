@@ -12,14 +12,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/nav.css">
     <!-- Scripts -->
-    
-    @vite([ getcwd() . "/sass/app.scss", 'resources/js/app.js'])
+
+    {{-- @vite([ getcwd() . "/sass/app.scss", 'resources/js/app.js']) --}}
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navcont">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -71,6 +71,10 @@
                     </ul>
                 </div>
             </div>
+        </nav>
+
+        <nav class="navcont">
+            <img src="images/dropshadowlogo.png" alt="logo" class="logo"/>
         </nav>
 
         <main class="py-4">
