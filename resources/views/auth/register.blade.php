@@ -69,9 +69,9 @@
                                      name="password_confirmation" required autocomplete="new-password">
                              </div>
                          </div>
-                         @if (Route::has('register'))
-                         <a class="forgot" href="{{ route('register') }}">
-                             {{ __('Register') }}
+                         @if (Route::has('login'))
+                         <a class="forgot" href="{{ route('login') }}">
+                             {{ __('Already have an account?') }}
                          </a>
                      @endif
                          <div class="row mb-0">
