@@ -1,7 +1,14 @@
 {{-- @extends('layouts.app') --}}
-
-{{-- @section('content') --}}
-<link rel="stylesheet" href="/css/login_register.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+    <link rel="stylesheet" href="/css/login_register.css">
 <div class="container">
     <img src="/images/dropshadowlogo.png" alt="logo" class="logo">
     <div class="mainCont">
@@ -81,4 +88,8 @@
         </div>
     </div>
 </div>
+</body>
+</html>
+{{-- @section('content') --}}
+
 {{-- @endsection --}}

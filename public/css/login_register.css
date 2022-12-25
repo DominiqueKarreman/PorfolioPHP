@@ -225,21 +225,21 @@ input[type="checkbox"]:before {
         width: 100%;
     }
     .email_label {
-        font-size: 2.8vw;
+        font-size: 3.8vw;
     }
     .checklabel {
-        font-size: 2.8vw;
+        font-size: 3.8vw;
     }
     .textinput {
         width: 60vw;
-        font-size: 2.8vw;
+        font-size: 3.8vw;
     }
     .forgot {
-        font-size: 2.8vw;
+        font-size: 3.8vw;
         margin-top: 10vh;
     }
     .create {
-        font-size: 2.8vw;
+        font-size: 3.8vw;
         margin-top: 15vh;
     }
     input[type="checkbox"] {
@@ -512,12 +512,12 @@ input[type="checkbox"]:before {
         -webkit-appearance: none;
         opacity: 0.5;
     }
-    html {
+    /* html {
         overflow: hidden;
-    }
+    } */
 
     body {
-        overflow: hidden;
+        /* overflow: hidden; */
         position: relative;
         margin: 0;
         padding: 0;
