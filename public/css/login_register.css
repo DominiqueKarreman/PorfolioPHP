@@ -41,7 +41,7 @@ body {
     margin-bottom: 5vh;
 }
 .email_label {
-    font-size: 0.975rem;
+    font-size: 1vw;
     font-family: "Hanken Grotesk", sans-serif;
     font-weight: 600;
     color: #374151;
@@ -77,8 +77,8 @@ input[type="checkbox"] {
     outline: 0;
     padding: 0 !important;
     vertical-align: text-top;
-    height: 20px;
-    width: 20px;
+    height: 2vw;
+    width: 2vw;
     -webkit-appearance: none;
     opacity: 0.5;
 }
@@ -135,97 +135,279 @@ input[type="checkbox"]:before {
     margin-top: 4vh;
     margin-bottom: 2vh;
 }
+.form-check {
+    display: flex;
+    align-items: center;
+}
 
-@media (min-width: 320px) {
+@media (min-width: 320px) and (max-width: 480px) {
     /* smartphones, iPhone, portrait 480x320 phones */
-    .mainCont {
-        
-        max-width: 80vw;
-        
-        width: 80%;
-       
-    }
-}
-@media (min-width: 481px) {
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-    .mainCont {
-        
-        max-width: 80vw;
-        
-        width: 80%;
-       
-    }
-    .textinput {
-        
-        width: 60vw;
-        height: 6vh;
-        
-    }
-}
-@media (min-width: 641px) {
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    .mainCont {
-        
-        max-width: 80vw;
-        
-        width: 80%;
-       
-    }
-    
-    .textinput {
-        
-        width: 60vw;
-        height: 6vh;
-        
-    }
     .login {
-     
-        right: 20vw;
-         
+        margin-top: 2vh;
+        width: 100%;
+        right: 0;
+        position: relative;
+    }
+    .bottomdiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainCont {
+        padding-bottom: 13vh;
+        max-width: 100vw;
+        width: 100%;
+    }
+    .email_label {
+        font-size: 2.8vw;
+    }
+    .checklabel {
+        font-size: 2.8vw;
+    }
+    .textinput {
+        width: 60vw;
+        font-size: 2.8vw;
+    }
+    .forgot {
+        font-size: 2.8vw;
+        margin-top: 10vh;
+    }
+    .create {
+        font-size: 2.8vw;
+        margin-top: 15vh;
+    }
+    input[type="checkbox"] {
+        position: relative;
+        border: 2px solid #374151;
+        border-radius: 0.25rem;
+        background: none;
+        cursor: pointer;
+        line-height: 0;
+        margin: 0 0.6em 0 0;
+        outline: 0;
+        padding: 0 !important;
+        vertical-align: text-top;
+        height: 4vw;
+        width: 4vw;
+        -webkit-appearance: none;
+        opacity: 0.5;
     }
 }
-@media (min-width: 961px) {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width: 481px) and (max-width: 640px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .login {
+        margin-top: 2vh;
+        width: 100%;
+        right: 0;
+        position: relative;
+    }
+    .bottomdiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainCont {
+        padding-bottom: 13vh;
+        max-width: 70vw;
+        width: 70%;
+    }
+    .email_label {
+        font-size: 2.8vw;
+    }
+    .checklabel {
+        font-size: 2.8vw;
+    }
+    .textinput {
+        width: 60vw;
+        font-size: 2.8vw;
+    }
+    .forgot {
+        font-size: 2.8vw;
+        margin-top: 10vh;
+    }
+    .create {
+        font-size: 2.8vw;
+        margin-top: 15vh;
+    }
+    input[type="checkbox"] {
+        position: relative;
+        border: 2px solid #374151;
+        border-radius: 0.25rem;
+        background: none;
+        cursor: pointer;
+        line-height: 0;
+        margin: 0 0.6em 0 0;
+        outline: 0;
+        padding: 0 !important;
+        vertical-align: text-top;
+        height: 4vw;
+        width: 4vw;
+        -webkit-appearance: none;
+        opacity: 0.5;
+    }
 }
-@media (min-width: 1025px) {
+@media (min-width: 641px) and (max-width: 960px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .login {
+        margin-top: 2vh;
+        width: 100%;
+        right: 0;
+        position: relative;
+    }
+    .bottomdiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainCont {
+        padding-bottom: 13vh;
+        max-width: 60vw;
+        width: 60%;
+    }
+    .email_label {
+        font-size: 2.2vw;
+    }
+    .checklabel {
+        font-size: 2.2vw;
+    }
+    .textinput {
+        width: 50vw;
+        font-size: 2.2vw;
+    }
+    .forgot {
+        font-size: 2.2vw;
+        margin-top: 10vh;
+    }
+    .create {
+        font-size: 2.2vw;
+        margin-top: 15vh;
+    }
+    input[type="checkbox"] {
+        position: relative;
+        border: 2px solid #374151;
+        border-radius: 0.25rem;
+        background: none;
+        cursor: pointer;
+        line-height: 0;
+        margin: 0 0.6em 0 0;
+        outline: 0;
+        padding: 0 !important;
+        vertical-align: text-top;
+        height: 4vw;
+        width: 4vw;
+        -webkit-appearance: none;
+        opacity: 0.5;
+    }
+}
+@media (min-width: 961px) and (max-width: 1024px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .login {
+        margin-top: 2vh;
+        width: 100%;
+        right: 0;
+        position: relative;
+    }
+    .bottomdiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainCont {
+        padding-bottom: 13vh;
+        max-width: 50vw;
+        width: 50%;
+    }
+    .email_label {
+        font-size: 1.5vw;
+    }
+    .checklabel {
+        font-size: 1.5vw;
+    }
+    .textinput {
+        font-size: 1.5vw;
+    }
+    .forgot {
+        font-size: 1.5vw;
+        margin-top: 10vh;
+    }
+    .create {
+        font-size: 1.5vw;
+        margin-top: 15vh;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
     /* big landscape tablets, laptops, and desktops */
     .mainCont {
-        
         max-width: 35vw;
-        
+
         width: 35%;
-       
     }
     .textinput {
-        
         width: 30vw;
         height: 6vh;
-        
     }
     .login {
-     
         right: 35vw;
-         
+    }
+    .email_label {
+        font-size: 1.2vw;
+    }
+    .checklabel {
+        font-size: 1.2vw;
+    }
+    .textinput {
+        font-size: 1.2vw;
+    }
+    .forgot {
+        font-size: 1.2vw;
+    }
+    .create {
+        font-size: 1.2vw;
     }
 }
 @media (min-width: 1281px) {
     /* hi-res laptops and desktops */
     .mainCont {
-        
         max-width: 35vw;
-        
+
         width: 35%;
-       
     }
     .textinput {
-        
         width: 30vw;
         height: 6vh;
-        
     }
     .login {
-     
         right: 35vw;
-         
+    }
+    .email_label {
+        font-size: 1vw;
+    }
+    .checklabel {
+        font-size: 1vw;
+    }
+    .textinput {
+        font-size: 1vw;
+    }
+    .forgot {
+        font-size: 1vw;
+    }
+    .create {
+        font-size: 1vw;
+    }
+    input[type="checkbox"] {
+        position: relative;
+        border: 2px solid #374151;
+        border-radius: 0.25rem;
+        background: none;
+        cursor: pointer;
+        line-height: 0;
+        margin: 0 0.6em 0 0;
+        outline: 0;
+        padding: 0 !important;
+        vertical-align: text-top;
+        height: 1vw;
+        width: 1vw;
+        -webkit-appearance: none;
+        opacity: 0.5;
     }
 }
