@@ -20,6 +20,18 @@ Route::get('/posts', function(){
     ]);
 });
 
+Route::get('/users', function(){
+    $results = DB::select('select * from users');
+    return response()->json($results);
+});
+   
+Route::get('/users/{id}', function($id){
+    $results = DB::select('select * from users where id = ?', [$id]);
+   
+    return response()->json($results, 200);
+});
+   
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
