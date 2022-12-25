@@ -140,6 +140,7 @@ input[type="checkbox"]:before {
     align-items: center;
 }
 
+
 @media only screen and (max-width: 480px) {
     /* smartphones, iPhone, portrait 480x320 phones */
     .login {
@@ -411,3 +412,62 @@ input[type="checkbox"]:before {
         opacity: 0.5;
     }
 }
+
+@media only screen 
+    and (device-width: 390px) 
+    and (device-height: 844px) 
+    and (-webkit-device-pixel-ratio: 3) { 
+        .login {
+            margin-top: 2vh;
+            width: 100%;
+            right: 0;
+            position: relative;
+        }
+        .bottomdiv {
+            display: flex;
+            justify-content: center;
+        }
+    
+        .mainCont {
+            padding-bottom: 13vh;
+            max-width: 100vw;
+            width: 100%;
+        }
+        .email_label {
+            font-size: 2.8vw;
+        }
+        .checklabel {
+            font-size: 2.8vw;
+        }
+        .textinput {
+            width: 60vw;
+            font-size: 2.8vw;
+        }
+        .forgot {
+            font-size: 2.8vw;
+            margin-top: 10vh;
+        }
+        .create {
+            font-size: 2.8vw;
+            margin-top: 15vh;
+        }
+        input[type="checkbox"] {
+            position: relative;
+            border: 2px solid #374151;
+            border-radius: 0.25rem;
+            background: none;
+            cursor: pointer;
+            line-height: 0;
+            margin: 0 0.6em 0 0;
+            outline: 0;
+            padding: 0 !important;
+            vertical-align: text-top;
+            height: 4vw;
+            width: 4vw;
+            -webkit-appearance: none;
+            opacity: 0.5;
+        }
+        body {
+            overflow-y: hidden;
+        }
+    }
