@@ -473,5 +473,11 @@ input[type="checkbox"]:before {
         position: relative;
         margin: 0;
         padding: 0;
+        background-image: url("../images/loginBackground.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
     }
 }
