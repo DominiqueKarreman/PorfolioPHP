@@ -43,7 +43,7 @@
             </li>
         </ul>
     </nav>
-    <div class="content">
+    <div class="contentQuizes">
         <h1 id="quizesText">Quizes</h1>
         <div class="quizes">
             @unless (empty($quizes))
