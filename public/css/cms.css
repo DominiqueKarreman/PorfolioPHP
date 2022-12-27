@@ -298,6 +298,11 @@ a {
     background-color: #3a6bff;
     
 }
+#none {
+    font-size: 3vh;
+    color: white;
+    font-weight: 400;
+}
 .editQuiz {
     background-color: #bc1c1c;
 }

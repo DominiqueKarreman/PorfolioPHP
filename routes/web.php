@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +22,13 @@ Route::get('/software', function () {
     return view('software');
 });
 
+
 Route::get('/melvin', function () {
     return view('melvin');
+});
+
+Route::get('/funnycat', function () {
+    return view('funnycat');
 });
 
 Route::get('/login', function () {
@@ -45,3 +51,5 @@ Route::get('/quizes/show/{id}', [App\Http\Controllers\QuizesController::class, '
 Route::get('/quizes/edit/{id}', [App\Http\Controllers\QuizesController::class, 'editQuiz'])->name('quizes.edit');
 Route::get('/quizes/create', [App\Http\Controllers\QuizesController::class, 'createQuiz'])->name('quizes.create');
 Route::post('/quizes/store', [App\Http\Controllers\QuizesController::class, 'storeQuiz'])->name('quizes.store');
+Route::post('/quizes/update/{id}', [App\Http\Controllers\QuizesController::class, 'updateQuiz'])->name('quizes.update');
+Route::get('/quizes/delete/{id}', [App\Http\Controllers\QuizesController::class, 'deleteQuiz'])->name('quizes.delete');

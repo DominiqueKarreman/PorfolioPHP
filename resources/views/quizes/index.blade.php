@@ -45,6 +45,7 @@
     </nav>
     <div class="contentQuizes">
         <h1 id="quizesText">Quizes</h1>
+        <a href="{{ route('quizes.create') }}" class="createQuiz">+</a>
         <div class="quizes">
             @unless (empty($quizes))
             @foreach ($quizes as $quiz)
@@ -63,8 +64,8 @@
             @else
             <div class="options">
 
-                <h1 >No Quizes</h1>
-                <a href="{{ route('quizes.create') }}" class="createQuiz">Create Quiz</a>
+                <h1 id="none">No Quizes</h1>
+                {{-- <a href="{{ route('quizes.create') }}" class="createQuiz">Create Quiz</a> --}}
             </div>
             @endunless
            
