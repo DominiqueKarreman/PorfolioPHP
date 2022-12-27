@@ -255,6 +255,7 @@ input[type="checkbox"] {
     padding-top: 3vw;
     padding-bottom: 3vw;
     padding-inline: 1vw;
+    z-index: -1;
     width: 30%;
     height: 40vh;
     background: rgba(255, 255, 255, 0.87);
