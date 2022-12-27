@@ -73,9 +73,7 @@
             </div>
         </nav>
 
-        <nav class="navcont">
-            <img src="images/dropshadowlogo.png" alt="logo" class="logo"/>
-        </nav>
+        
 
         <main class="py-4">
             @yield('content')

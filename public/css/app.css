@@ -443,7 +443,7 @@ p {
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-end;
   max-width: 48vh;
   height: 41.9vh;
   max-height: 400px;

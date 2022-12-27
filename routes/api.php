@@ -27,7 +27,6 @@ Route::get('/users', function(){
    
 Route::get('/users/{id}', function($id){
     $results = DB::select('select * from users where id = ?', [$id]);
-   
     return response()->json($results, 200);
 });
    
