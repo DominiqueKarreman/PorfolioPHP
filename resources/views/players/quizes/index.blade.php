@@ -56,8 +56,8 @@
                 <h1>Date: <p>{{$quiz->date}}</p></h1>
                 <h1>Active: <p>{{$quiz->is_active == 1 ? 'Active' : 'Inactive'}}</p></h1>
                 <div class="buttons">
-                    <a href="{{ route('quizes.show', $quiz->id) }}" class="startQuiz">Show Quiz</a>
-                    <a href="{{ route('quizes.edit', $quiz->id) }}" class="editQuiz">Edit Quiz</a>
+                    <a href="{{ route('players.quizes.show', $quiz->id) }}" class="startQuiz">Show Quiz</a>
+
                 </div>
                 {{-- <a href="{{ route('quizes.show', $quiz->id) }}">Start Quiz</a> --}}
             </div>

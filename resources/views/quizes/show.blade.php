@@ -56,6 +56,10 @@
                 <h1>Active: </h1>
                 <p>{{ $quiz->is_active == 1 ? 'Active' : 'Inactive' }}</p>
             </div>
+            <div class="players">
+                <h1>players:</h1>
+                <p>{{ $quiz->count}}</p>
+            </div>
             <button id="showQr"class="showQr">
                 Show QR
             </button>

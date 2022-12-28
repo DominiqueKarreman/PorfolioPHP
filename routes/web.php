@@ -34,6 +34,10 @@ Route::get('/funnycat', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/players/login', function () {
+    return view('players.login');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -45,6 +49,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// player routes
+Route::get('/players/login', [App\Http\Controllers\PlayersController::class, 'login'])->name('players.login');
+Route::post('/players', [App\Http\Controllers\PlayersController::class, 'storePlayer'])->name('players.store');
+Route::get('/players/cookie', [App\Http\Controllers\PlayersController::class, 'returnCookie'])->name('players.cookie');
+//quiz routes
 
 Route::get('/quizes', [App\Http\Controllers\QuizesController::class, 'index'])->name('quizes');
 Route::get('/quizes/show/{id}', [App\Http\Controllers\QuizesController::class, 'getQuiz'])->name('quizes.show');
@@ -53,3 +63,7 @@ Route::get('/quizes/create', [App\Http\Controllers\QuizesController::class, 'cre
 Route::post('/quizes/store', [App\Http\Controllers\QuizesController::class, 'storeQuiz'])->name('quizes.store');
 Route::post('/quizes/update/{id}', [App\Http\Controllers\QuizesController::class, 'updateQuiz'])->name('quizes.update');
 Route::get('/quizes/delete/{id}', [App\Http\Controllers\QuizesController::class, 'deleteQuiz'])->name('quizes.delete');
+Route::get('/quizes/join/{id}', [App\Http\Controllers\QuizesController::class, 'joinQuiz'])->name('quizes.join');
+//player quiz routes
+Route::get('/players/quizes', [App\Http\Controllers\PlayersController::class, 'getQuizes'])->name('players.quizes');
+Route::get('/players/quizes/{id}', [App\Http\Controllers\PlayersController::class, 'getQuiz'])->name('players.quizes.show');

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
-use File;
 
 class QuizesController extends Controller
 {
@@ -21,6 +22,10 @@ class QuizesController extends Controller
     public function getQuiz($id)
     {
         $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
+        $count = DB::select('SELECT COUNT(*) as count FROM players WHERE quiz_id = ?', [$id]);
+        
+        $result[0]->count = $count[0]->count; 
+        
         return view('quizes.show', ['quiz' => $result[0]]);
     }
     public function editQuiz($id)
@@ -59,7 +64,7 @@ class QuizesController extends Controller
         File::delete(public_path('storage/qr/' . $file));
         // unlink(storage_path('app/qr' . $file));
         // dd($file, is_file($file), Storage::delete($file));
-        
+
         if (is_file($file)) {
             // 1. possibility
             Storage::delete($file);
@@ -86,6 +91,16 @@ class QuizesController extends Controller
     {
         $result = DB::delete('DELETE FROM quizes WHERE id = ?', [$id]);
         return redirect()->route('quizes');
+    }
+
+    public function joinQuiz($id)
+    {
+        //     $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
+        // dd($result);
+        $name = Cookie::get('player');
+        DB::update('UPDATE players SET quiz_id = ? WHERE name = ?', [$id, $name]);
+        return redirect()->route('players.quizes');
+        // return view('quizes.join', ['quiz' => $result[0]]);
     }
 
 

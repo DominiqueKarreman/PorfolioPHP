@@ -13,7 +13,8 @@
 
 <body>
     <nav>
-        <div class="logo"> {{ Auth::user()->name }}</div>
+        {{-- <div class="logo"> {{ Auth::user()->name }} </div> --}}
+        <div class="logo"> Pubquiz</div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
             <i class="fas fa-bars"></i>

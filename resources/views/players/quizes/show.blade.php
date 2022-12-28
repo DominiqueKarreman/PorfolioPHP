@@ -1,3 +1,4 @@
+{{-- @extends('layouts.app') --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,15 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/cms.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <title>CMS</title>
+    <title>Login</title>
 </head>
 
 <body>
-
-
     <nav>
-       {{-- <div class="logo"> {{ Auth::user()->name }} </div> --}}
-       <div class="logo"> Pubquiz</div>
+        {{-- <div class="logo"> {{ Auth::user()->name }} </div> --}}
+        <div class="logo"> Pubquiz</div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
             <i class="fas fa-bars"></i>
@@ -26,10 +25,6 @@
             <li><a href="#">Posts</a></li>
 
             <li class="nav-item dropdown">
-
-
-
-
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -44,35 +39,37 @@
             </li>
         </ul>
     </nav>
-    <div class="contentQuizes">
-        <h1 id="quizesText">Quizes</h1>
-        <a href="{{ route('quizes.create') }}" class="createQuiz">+</a>
-        <div class="quizes">
-            @unless (empty($quizes))
-            @foreach ($quizes as $quiz)
-            <div class="quiz">
-                <h1> {{ $quiz->title }} </h1>
-                <p> {{ $quiz->description }} </p>
-                <h1>Date: <p>{{$quiz->date}}</p></h1>
-                <h1>Active: <p>{{$quiz->is_active == 1 ? 'Active' : 'Inactive'}}</p></h1>
-                <div class="buttons">
-                    <a href="{{ route('quizes.show', $quiz->id) }}" class="startQuiz">Show Quiz</a>
-                    <a href="{{ route('quizes.edit', $quiz->id) }}" class="editQuiz">Edit Quiz</a>
-                </div>
-                {{-- <a href="{{ route('quizes.show', $quiz->id) }}">Start Quiz</a> --}}
-            </div>
-            @endforeach
-            @else
-            <div class="options">
+    <div class="showQuizContainer">
+        <img class="qr" id="qr"src="{{ $quiz->qr_path }}" alt="qr">
+        <div class="showQuizCard">
+            <div class="title">
 
-                <h1 id="none">No Quizes</h1>
-                {{-- <a href="{{ route('quizes.create') }}" class="createQuiz">Create Quiz</a> --}}
+                <h1>{{ $quiz->title }}</h1>
+                <p>{{ $quiz->description }}</p>
             </div>
-            @endunless
+            <div class="date">
+
+                <h1>Date: </h1>
+                <p>{{ $quiz->date }}</p>
+            </div>
+            <div class="active">
+
+                <h1>Active: </h1>
+                <p>{{ $quiz->is_active == 1 ? 'Active' : 'Inactive' }}</p>
+            </div>
+            <div class="join">
+                <a href="{{route('quizes.join', $quiz->id)}}" class="startQuiz">Join quiz</a>
+            </div>
            
-      
+            <button id="showQr"class="showQr">
+                Show QR
+            </button>
+        </div>
     </div>
-
 </body>
+<script src="/js/cms.js"></script>
 
 </html>
+{{-- @section('content') --}}
+
+{{-- @endsection --}}
