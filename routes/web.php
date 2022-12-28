@@ -52,8 +52,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // player routes
 Route::get('/players/login', [App\Http\Controllers\PlayersController::class, 'login'])->name('players.login');
+Route::post('/players/logout', [App\Http\Controllers\PlayersController::class, 'logout'])->name('players.logout');
 Route::post('/players', [App\Http\Controllers\PlayersController::class, 'storePlayer'])->name('players.store');
 Route::get('/players/cookie', [App\Http\Controllers\PlayersController::class, 'returnCookie'])->name('players.cookie');
+
 //quiz routes
 
 Route::get('/quizes', [App\Http\Controllers\QuizesController::class, 'index'])->name('quizes');
