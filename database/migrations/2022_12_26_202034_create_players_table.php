@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('team_id')->references('id')->on('teams');
-            $table->foreignId('quiz_id')->references('id')->on('quizes');
-            $table->string('wrong');
-            $table->string('right');
+            $table->foreignId('team_id')->references('id')->on('teams')->nullable();
+            $table->foreignId('quiz_id')->references('id')->on('quizes')->nullable();
+            $table->string('wrong')->nullable();
+            $table->string('right')->nullable();
             $table->timestamps();
         });
     }
