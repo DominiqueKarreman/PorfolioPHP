@@ -16,8 +16,8 @@ class PlayersController extends Controller
     public function storePlayer(Request $request)
     {
 
-        if(Cookie::get('player') == null){
-            return redirect()->route('quizes');
+        if (Cookie::get('player') != null) {
+            Cookie::queue(Cookie::forget('player'));
         }
 
         //post request to players 
@@ -32,7 +32,7 @@ class PlayersController extends Controller
     }
     public function getQuizes()
     {
-        
+
         $result = DB::select('SELECT * FROM quizes');
         return view('players.quizes.index', ['quizes' => $result]);
     }
