@@ -14,11 +14,11 @@ class TeamsController extends Controller
     {
         
         $teams =  DB::select('SELECT *, quizes.id as quiz_id, teams.id as team_id, quizes.title as quiz_name, teams.created_at as created_at, teams.updated_at as updated_at FROM teams INNER JOIN quizes ON quizes.id = teams.quiz_id where quiz_id = ?', [$id]);
+        $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
         foreach ($teams as $team) {
             //get player count per team 
 
             $players = DB::select('SELECT COUNT(*) FROM players WHERE team_id = ?', [$team->team_id]);
-            $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
             $count = $players[0]->{'COUNT(*)'};
             $team->count = $count;
         }
