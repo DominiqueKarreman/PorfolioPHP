@@ -24,7 +24,7 @@ class TeamsController extends Controller
         }
         // dd($teams);
  
-        return view('teams.index', ['teams' => $teams ]);
+        return view('teams.index', ['teams' => $teams, 'quiz_id' => $id ]);
  
     }
     public function join($id, $team_id)

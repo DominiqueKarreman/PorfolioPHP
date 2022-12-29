@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <form method="POST" id="createTeamForm" action="{{ route('teams.store', $teams[0]->quiz_id) }}">
+                        <form method="POST" id="createTeamForm" action="{{ route('teams.store', $quiz_id) }}">
                             @csrf
 
                         
@@ -98,7 +98,7 @@
                     <tr>
                         <td>No teams found</td>
                     </tr>
-                    
+
                     @endif
                 </tbody>
             </table>
