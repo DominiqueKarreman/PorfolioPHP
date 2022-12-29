@@ -47,7 +47,7 @@
     </nav>
     <div id="teamscontainer" class="container">
         {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
-        <h1 id="teamsHeader">Teams for {{ $teams[0]->quiz_name }}</h1>
+        <h1 id="teamsHeader">Teams for {{ $quiz->title }}</h1>
 
         <div id="teamsMainCont" class="mainCont">
 
@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <form method="POST" id="createTeamForm" action="{{ route('teams.store', $quiz_id) }}">
+                        <form method="POST" id="createTeamForm" action="{{ route('teams.store', $quiz->id) }}">
                             @csrf
 
                         
