@@ -18,7 +18,7 @@ class TeamsController extends Controller
             //get player count per team 
 
             $players = DB::select('SELECT COUNT(*) FROM players WHERE team_id = ?', [$team->team_id]);
-            $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$team->quiz_id]);
+            $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
             $count = $players[0]->{'COUNT(*)'};
             $team->count = $count;
         }
