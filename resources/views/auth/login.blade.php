@@ -10,7 +10,7 @@
 <body>
     <link rel="stylesheet" href="/css/login_register.css">
 <div class="container">
-    <img src="/images/dropshadowlogo.png" alt="logo" class="logo">
+    <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK">
     <div class="mainCont">
         <div class="col-md-8">
             <div class="card">

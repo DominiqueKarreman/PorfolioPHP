@@ -102,6 +102,12 @@ class QuizesController extends Controller
         return redirect()->route('players.quizes');
         // return view('quizes.join', ['quiz' => $result[0]]);
     }
-
+    public function quizScreen($id)
+    {
+        // $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
+        // $count = DB::select('SELECT COUNT(*) as count FROM players WHERE quiz_id = ?', [$id]);
+        // $result[0]->count = $count[0]->count;
+        return view('quizes.quiz');
+    }
 
 }

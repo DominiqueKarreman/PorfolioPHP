@@ -4,9 +4,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+
 }
 html {
-    background-color: #1b1b1b;
+    overflow-x: hidden;
 }
 .wrapper {
     height: 100%;
@@ -249,7 +250,7 @@ input[type="checkbox"] {
     align-items: center;
     margin: 0 auto;
     width: 100%;
-    
+
     padding: 5vh 3vw;
     row-gap: 5vh;
 }
@@ -275,7 +276,6 @@ input[type="checkbox"] {
 .quiz h1 {
     font-size: 3vh;
     color: rgb(0, 0, 0);
-  
 }
 #quizesText {
     /* margin-top: 22vh; */
@@ -291,7 +291,6 @@ a {
     border-radius: 1vh;
     font-size: 3vh;
     padding: 1vh 2vh;
-    
 }
 .startQuiz {
     background-color: #1c4cdc;
@@ -299,7 +298,6 @@ a {
 
 .startQuiz:hover {
     background-color: #3a6bff;
-    
 }
 #none {
     font-size: 3vh;
@@ -311,7 +309,6 @@ a {
 }
 .editQuiz:hover {
     background-color: #f24141;
-    
 }
 body {
     background-image: url("../images/background169.png");
@@ -347,16 +344,14 @@ body {
 }
 
 #qr_path::before {
- 
     display: inline-block;
-  }
+}
 #qr_path::-webkit-file-upload-button {
     visibility: hidden;
-  }
+}
 .quizes h1 {
     font-size: 3vh;
     color: rgb(0, 0, 0);
-  
 }
 .createQuiz {
     text-decoration: none;
@@ -369,7 +364,6 @@ body {
 
 .createQuiz:hover {
     background-color: #3a6bff;
-    
 }
 .email_label {
     font-size: 1vw;
@@ -481,8 +475,6 @@ input[type="checkbox"]:before {
     font-weight: 600;
     color: white;
     background-color: #1f2937;
-     
-    
 }
 
 .forgot {
@@ -520,6 +512,72 @@ input[type="checkbox"]:before {
     color: white;
     border-radius: 0.375rem;
     padding: 1.5vh 5vh;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    border-radius: 3vh;
+    color: #ffffff;
+    padding: 4vw;
+    font-size: 1.2vw;
+    text-align: center;
+    top: auto;
+    margin-bottom: 2vh;
+}
+#tableinput{ 
+    width: 100%;
+    background-color: #1b1b1b;
+    border: 3px solid white;
+    color: white;
+}
+#teamsHeader {
+    color: #ffffff;
+
+    font-size: 3vw;
+    text-align: center;
+    top: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+#toprow {
+    border-radius: 5vw;
+}
+tr {
+    height: 5vw;
+    text-align: center;
+    background-color: #323232;
+}
+tbody tr:nth-of-type(odd) {
+    background-color: #1b1b1b;
+}
+thead {
+    border-radius: 5vw;
+    text-align: center;
+}
+#teamsMainCont h1 {
+    font-size: 2vw;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+td {
+    padding: 1vw;
+    font-size: 1.2vw;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    color: white;
+}
+th {
+    background-color: #1f2937;
+    color: white;
+    padding: 1vw;
+    font-size: 1.2vw;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 @media (max-width: 1000px) {
     nav {
@@ -568,19 +626,18 @@ input[type="checkbox"]:before {
         color: cyan;
     }
     .quiz {
-    
         width: 90%;
-        
     }
     #quizesText {
         /* margin-top: 122vh; */
         font-size: 6vh;
-         
     }
     .showQuizCard {
         width: 90vw;
     }
-    .textinput, .textarea, .datetime {
+    .textinput,
+    .textarea,
+    .datetime {
         width: 80vw;
         max-width: 80vw;
         font-size: 2vh;
@@ -595,11 +652,10 @@ input[type="checkbox"]:before {
         display: none;
         position: absolute;
         left: 0;
-     
+
         margin-left: auto;
         margin-right: auto;
         right: 0;
-
 
         z-index: 1;
     }
@@ -609,5 +665,28 @@ input[type="checkbox"]:before {
     /* .content {
         margin-top: 20vh;
     } */
+    table,
+    td {
+        font-size: 2vh;
+    }
+    th {
+        font-size: 1.8vh;
+    }
+    #tableJoin {
+        font-size: 1.3vh;
+    }
+    #teamsHeader {
+        font-size: 10vw;
+    }
+    #tableinput {
+        font-size: 1.5vh;
+        height: 50%;
+    }
+    #createTeam {
+        font-size: 1vh;
+        width: 100%;
+        padding: 1vh 2vh;
+        content: 'create';
+        flex-wrap: nowrap;
+    }
 }
-

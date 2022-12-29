@@ -15,6 +15,13 @@ class PlayersController extends Controller
     }
     public function storePlayer(Request $request)
     {
+        //check if player exists
+        $result = DB::select('SELECT * FROM players WHERE name = ?', [$request->name]);
+        if ($result){
+            $minutes = 6000;
+            Cookie::queue('player', $request->name, $minutes);
+            return redirect()->route('players.quizes');
+        }
 
         if (Cookie::get('player') != null) {
             Cookie::queue(Cookie::forget('player'));
@@ -48,9 +55,9 @@ class PlayersController extends Controller
     }
     public function logout()
     {
-       setcookie('player', '', time() - 3600, '/');
+        setcookie('player', '', time() - 3600, '/');
 
-        
+
         return redirect()->route('players.login');
     }
 

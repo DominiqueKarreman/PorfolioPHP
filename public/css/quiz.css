@@ -1,0 +1,94 @@
+html {
+    overflow: hidden;
+}
+#quizScreen {
+    width: 80vw;
+    max-width: 80vw;
+    height: 90vh;
+}
+#quizContainer {
+    height: 110vh;
+    
+}
+
+.answer {
+    background-color: #1b1b1b;
+    width: 30vw;
+    aspect-ratio: 6/1;
+    margin: 1.2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4vh;
+    border-radius: 2vw;
+}
+.letter {
+    font-size: 3vh;
+    font-weight: bold;
+    color: black;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+}
+.option {
+    color: white;
+}
+.answers {
+    /* position: absolute; */
+
+    left: 20vw;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-end;
+}
+#playerTeam {
+    color: #ffffff;
+
+    font-size: 3vw;
+    text-align: center;
+    top: auto;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+@media (max-width: 920px) {
+    .answers {
+        align-content: center;
+        margin-top: 30vh;
+    }
+    .answer {
+        width: 75vw;
+        margin: 2vw;
+    }
+    .option {
+        font-size: 4vw;
+    }
+    .letter {
+        width: 10vw;
+        height: 10vw;
+        font-size: 5vw;
+    } 
+    #playerTeam {
+        color: #ffffff;
+    
+        font-size: 10vw;
+        text-align: center;
+        top: auto;
+        margin-top: 5vh;
+        margin-bottom: 1vh;
+    }
+
+#quizScreen {
+   
+    height: 75vh;
+}
+}

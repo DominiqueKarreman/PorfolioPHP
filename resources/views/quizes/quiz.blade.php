@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/cms.css">
+    <link rel="stylesheet" href="/css/quiz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="/css/login_register.css">
     <title>Login</title>
+    
 </head>
 
 <body>
@@ -43,36 +46,23 @@
             </li>
         </ul>
     </nav>
-    <div class="showQuizContainer">
-        <img class="qr" id="qr"src="{{ $quiz->qr_path }}" alt="qr">
-        <div class="showQuizCard">
-            <div class="title">
+    <div id="quizContainer" class="container">
+        {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
+        <h1 id="playerTeam">Teams for </h1>
 
-                <h1>{{ $quiz->title }}</h1>
-                <p>{{ $quiz->description }}</p>
-            </div>
-            <div class="date">
+        <div id="quizScreen" class="mainCont">
+            <div class="answers">
 
-                <h1>Date: </h1>
-                <p>{{ $quiz->date }}</p>
+                <div class="answer"><div class="letter">A</div> <h1 class="option">antwoord</h1></div>
+                <div class="answer"><div class="letter">B</div> <h1 class="option">antwoord</h1></div>
+                <div class="answer"><div class="letter">C</div> <h1 class="option">antwoord</h1></div>
+                <div class="answer"><div class="letter">D</div> <h1 class="option">antwoord</h1></div>
             </div>
-            <div class="active">
 
-                <h1>Active: </h1>
-                <p>{{ $quiz->is_active == 1 ? 'Active' : 'Inactive' }}</p>
-            </div>
-            <div class="join">
-                <a href="{{route('quizes.join', $quiz->id)}}" class="startQuiz">Join solo</a>
-                <a href="{{route('teams.index', $quiz->id)}}" class="startQuiz">Join as team</a>
-            </div>
-           
-            <button id="showQr"class="showQr">
-                Show QR
-            </button>
         </div>
     </div>
+
 </body>
-<script src="/js/cms.js"></script>
 
 </html>
 {{-- @section('content') --}}
