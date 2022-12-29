@@ -83,7 +83,7 @@
                     <input type="hidden" name="created_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
                     <input type="hidden" name="updated_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
                 </form>
-
+                    @if(count($teams) > 0)
                     @foreach ($teams as $team)
                         <tr>
                             <td>{{ $team->name }}</td>
@@ -94,7 +94,12 @@
                             </td>
                         </tr>
                     @endforeach
-
+                    @else 
+                    <tr>
+                        <td>No teams found</td>
+                    </tr>
+                    
+                    @endif
                 </tbody>
             </table>
 
