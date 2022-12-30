@@ -82,7 +82,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td>No teams found</td>
+                            <td>No questions found</td>
                         </tr>
 
                     @endif
