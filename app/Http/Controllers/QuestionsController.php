@@ -13,7 +13,7 @@ class QuestionsController extends Controller
     public function index($id)
     {
         $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
-        $questions = DB::select('SELECT ROW_NUMBER() OVER(ORDER BY id) AS row, id, title, question FROM questions WHERE quiz_id = ?', [$id]);
+        $questions = DB::select('SELECT  id, title, question FROM questions WHERE quiz_id = ?', [$id]);
 
         return view('questions.index', ['quiz' => $quiz[0], 'questions' => $questions]);
     }

@@ -67,7 +67,7 @@
                     @if (count($questions) > 0)
                         @foreach ($questions as $question)
                             <tr>
-                                <td>{{ $question->row }}</td>
+                                <td>{{ $question->id }}</td>
                                 <td>{{ $question->title }}</td>
                                 <td>{{ $question->question }}</td>
                                 <td>
