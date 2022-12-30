@@ -75,7 +75,7 @@ class QuestionsController extends Controller
         $question = $request->input('question');
       
         $result = DB::update('UPDATE questions SET title = ?, question = ?, img_path = ? WHERE id = ?', [$title, $question, $img_path, $question_id]);
-        return redirect()->route('quizes');
+        return redirect()->route('quizes.questions', $id);
 
     }
 }
