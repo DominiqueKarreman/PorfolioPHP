@@ -1,4 +1,4 @@
-<body >
+<body > <link rel="icon" type="image/svg" href="/images/logo.svg" />
     
 </body>
 <style>

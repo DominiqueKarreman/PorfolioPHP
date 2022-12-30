@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <link rel="icon" type="image/svg" href="/images/logo.svg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="/css/login_register.css">
     <title>Login</title>
-    
+
 </head>
 
 <body>
@@ -48,57 +48,42 @@
     </nav>
     <div id="teamscontainer" class="container">
         {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
-        <h1 id="teamsHeader">Teams for {{ $quiz->title }}</h1>
-
+        <h1 id="questionsHeader">Questions for {{ $quiz->title }}</h1>
+        <a href="{{ route('questions.create', $quiz->id) }}" id="createQuestion" class="createQuiz">+</a>
         <div id="teamsMainCont" class="mainCont">
 
             <table>
                 <thead>
 
                     <tr id="toprow">
-                        <th>Team name</th>
-                        <th>Amount of players</th>
-                        <th>Created at</th>
-                        <th>Join</th>
+                        <th>Index</th>
+                        <th>Title</th>
+                        <th>Question</th>
+                        <th>Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <form method="POST" id="createTeamForm" action="{{ route('teams.store', $quiz->id) }}">
-                            @csrf
 
-                        
-                      @php
-                         {{ date_default_timezone_set('Europe/Amsterdam'); }}
-                        @endphp
-    
-                        <td><input id="tableinput" class="textinput" type="text" name="name"></td>
-                        <td>0</td>
-                        <td>{{ date('m/d/Y h:i:s a', time()) }}</td>
-                        <td><a id="createTeam" class="startQuiz" onclick="event.preventDefault();
-                            document.getElementById('createTeamForm').submit();">Create</a>
-                        </td>
-                    </tr>
-                    
-                    <input type="hidden" name="player" value="{{ Cookie::get('player')}}">
-                    <input type="hidden" name="created_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
-                    <input type="hidden" name="updated_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
-                </form>
-                    @if(count($teams) > 0)
-                    @foreach ($teams as $team)
+                    @if (count($questions) > 0)
+                        @foreach ($questions as $question)
+                            <tr>
+                                <td>{{ $question->row }}</td>
+                                <td>{{ $question->title }}</td>
+                                <td>{{ $question->question }}</td>
+                                <td>
+                                    <a id="option1" class="startQuiz"
+                                        href="{{ route('questions.edit', [$quiz->id, $question->id]) }}">Join</a>
+                                    <a id="option2" class="editQuiz"
+                                        href="{{ route('questions.delete', [$quiz->id, $question->id]) }}">Delete</a>
+                                    <a id="option3" class="editQuiz"
+                                        href="{{ route('questions.edit', [$quiz->id, $question->id]) }}">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
-                            <td>{{ $team->name }}</td>
-                            <td>{{ $team->count }}</td>
-                            <td>{{ $team->created_at }}</td>
-                            <td><a
-                                    id="tableJoin" class="startQuiz" href="{{ route('teams.join', [$team->quiz_id, $team->team_id]) }}">Join</a>
-                            </td>
+                            <td>No teams found</td>
                         </tr>
-                    @endforeach
-                    @else 
-                    <tr>
-                        <td>No teams found</td>
-                    </tr>
 
                     @endif
                 </tbody>

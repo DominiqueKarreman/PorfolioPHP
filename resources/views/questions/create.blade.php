@@ -14,7 +14,8 @@
 
 <body>
     <nav>
-        <div class="logo"> {{ Auth::user()->name }}</div>
+        {{-- <div class="logo"> {{ Auth::user()->name }} </div> --}}
+        <div class="logo"> Pubquiz</div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
             <i class="fas fa-bars"></i>
@@ -40,10 +41,9 @@
         </ul>
     </nav>
     <div class="showQuizContainer">
-        <div class="showQuizCard">
-            <h1>Edit quiz</h1>
-            <a class="editQuiz" href="{{ route('quizes.delete', $quiz->id) }}">delete</a>
-            <form method="post" action="{{ route('quizes.update', $quiz->id) }}" enctype="multipart/form-data">
+        <div id="questionCard" class="showQuizCard">
+            <h1>Create quiz</h1>
+            <form method="POST" action="{{ route('questions.store', $quiz->id) }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mb-3">
@@ -51,7 +51,7 @@
 
                     <div class="col-md-6">
                         <input id="title" type="text" class="textinput @error('title') is-invalid @enderror"
-                            name="title" value="{{ $quiz->title }}" required autofocus>
+                            name="title" value="{{ old('title') }}" required autofocus>
 
                         @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -62,39 +62,26 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="description" class="email_label">{{ __('Description') }}</label>
+                    <label for="description" class="email_label">{{ __('Question') }}</label>
 
                     <div class="col-md-6">
-                        <textarea id="description"   class="textarea @error('description') is-invalid @enderror"
-                            name="description" required>{{ $quiz->description }}</textarea>
+                        <input id="question" class="textinput @error('question') is-invalid @enderror" name="question"
+                            required></input>
 
-                        @error('description')
+                        @error('question')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
                 </div>
+
                 <div class="row mb-3">
-                    <label for="date" class="email_label">{{ __('Date - Time') }}</label>
+                    <label for="date" class="email_label">{{ __('Upload Question image') }}</label>
 
                     <div class="col-md-6">
-                        <input id="date" type="datetime-local" value="{{ $quiz->date }}"
-                            class="datetime @error('description') is-invalid @enderror" name="date" required></input>
-
-                        @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="date" class="email_label">{{ __('Upload QR code') }}</label>
-
-                    <div class="col-md-6">
-                        <input type="file" id="qr_path" value="{{ $quiz->qr_path }}" name="qr_path" accept="image/png, image/jpeg"
-                            class="datetime @error('description') is-invalid @enderror" name="date" required></input>
+                        <input type="file" id="img_path" name="img_path" accept="image/png, image/jpeg"
+                            class="datetime @error('description') is-invalid @enderror" name="img_path"></input>
 
                         @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -106,7 +93,7 @@
                 <div class="row mb-0">
                     <div class="bottomdiv">
                         <button type="submit" class="login">
-                            {{ __('Edit') }}
+                            {{ __('Create') }}
                         </button>
 
                     </div>

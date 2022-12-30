@@ -33,7 +33,7 @@ class TeamsController extends Controller
         $player_id = $player[0]->id;
       
         $return = DB::update('UPDATE players SET team_id = ? WHERE id = ?', [$team_id, $player_id]);
-        return redirect()->route('quizes.quizScreen', $id);
+        return redirect()->route('quizes.start', $id);
     }
     public function storeTeam(Request $request, $id)
     {

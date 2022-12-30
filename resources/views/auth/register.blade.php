@@ -1,4 +1,5 @@
  <link rel="stylesheet" href="/css/login_register.css">
+ <link rel="icon" type="image/svg" href="/images/logo.svg" />
  <div class="container">
      <div class="mainCont">
          <div class="col-md-8">

@@ -40,10 +40,10 @@
         </ul>
     </nav>
     <div class="showQuizContainer">
-        <div class="showQuizCard">
-            <h1>Edit quiz</h1>
-            <a class="editQuiz" href="{{ route('quizes.delete', $quiz->id) }}">delete</a>
-            <form method="post" action="{{ route('quizes.update', $quiz->id) }}" enctype="multipart/form-data">
+        <div id="questionCard" class="showQuizCard">
+            <h1>Edit question</h1>
+            <a class="editQuiz" href="{{ route('questions.delete', [$quiz->id, $question->id]) }}">delete</a>
+            <form method="post" action="{{ route('questions.update', [$quiz->id, $question->id]) }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row mb-3">
@@ -51,7 +51,7 @@
 
                     <div class="col-md-6">
                         <input id="title" type="text" class="textinput @error('title') is-invalid @enderror"
-                            name="title" value="{{ $quiz->title }}" required autofocus>
+                            name="title" value="{{ $question->title }}" required autofocus>
 
                         @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -62,39 +62,25 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="description" class="email_label">{{ __('Description') }}</label>
+                    <label for="description" class="email_label">{{ __('Question') }}</label>
 
                     <div class="col-md-6">
-                        <textarea id="description"   class="textarea @error('description') is-invalid @enderror"
-                            name="description" required>{{ $quiz->description }}</textarea>
-
-                        @error('description')
+                        <input id="question" value="{{$question->question}}" class="textinput @error('question') is-invalid @enderror" name="question" required />
+                        @error('question')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
                 </div>
+                
                 <div class="row mb-3">
-                    <label for="date" class="email_label">{{ __('Date - Time') }}</label>
+                    <label for="date" class="email_label">{{ __('Upload question image') }}</label>
 
                     <div class="col-md-6">
-                        <input id="date" type="datetime-local" value="{{ $quiz->date }}"
-                            class="datetime @error('description') is-invalid @enderror" name="date" required></input>
-
-                        @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="date" class="email_label">{{ __('Upload QR code') }}</label>
-
-                    <div class="col-md-6">
-                        <input type="file" id="qr_path" value="{{ $quiz->qr_path }}" name="qr_path" accept="image/png, image/jpeg"
-                            class="datetime @error('description') is-invalid @enderror" name="date" required></input>
+                        <input type="file" id="img_path"  name="img_path"
+                            accept="image/png, image/jpeg" class="datetime @error('description') is-invalid @enderror"
+                            name="date" ></input>
 
                         @error('description')
                             <span class="invalid-feedback" role="alert">

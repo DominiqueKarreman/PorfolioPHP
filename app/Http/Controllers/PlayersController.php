@@ -13,6 +13,7 @@ class PlayersController extends Controller
     {
         return view('players.login');
     }
+    
     public function storePlayer(Request $request)
     {
         //check if player exists

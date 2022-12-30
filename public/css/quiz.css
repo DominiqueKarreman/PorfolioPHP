@@ -1,16 +1,22 @@
 html {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 #quizScreen {
     width: 80vw;
     max-width: 80vw;
     height: 90vh;
 }
+#quizScreenStart {
+    width: 80vw;
+    max-width: 80vw;
+    height: 90vh;
+}
 #quizContainer {
     height: 110vh;
-    
 }
-
+#goBack2 {
+    margin-top: 5vh;
+}
 .answer {
     background-color: #1b1b1b;
     width: 30vw;
@@ -59,6 +65,37 @@ html {
     margin-top: 4vh;
     margin-bottom: 2vh;
 }
+#startScreenDiv {
+    align-content: flex-start;
+    padding: 5vh;
+    width: 50%;
+    align-items: flex-start;
+}
+#quizScreenStart {
+    flex-wrap: wrap;
+    margin-top: 25vh;
+}
+#quizContainerStart {
+    height: 90vh;
+}
+.rightContent {
+    width: 50%;
+}
+.players h1,
+.teams h1,
+.questions h1,
+.black {
+    color: black;
+    text-align: left;
+}
+.smallQR {
+    width: 10vw;
+
+    margin: 2vw;
+}
+#goBack2 {
+    display: none;
+}
 
 @media (max-width: 920px) {
     .answers {
@@ -76,19 +113,73 @@ html {
         width: 10vw;
         height: 10vw;
         font-size: 5vw;
-    } 
+    }
     #playerTeam {
         color: #ffffff;
-    
+
         font-size: 10vw;
         text-align: center;
         top: auto;
         margin-top: 5vh;
         margin-bottom: 1vh;
     }
+    #startScreenDiv {
+        margin-top: 0;
+        width: 100%;
+        padding-top: 0;
+    }
 
-#quizScreen {
-   
-    height: 75vh;
-}
+    #quizScreenStart {
+        height: 80vh;
+
+        flex-wrap: nowrap;
+        padding-top: 5vh;
+    }
+    #quizScreen {
+        height: 75vh;
+    }
+    .players h1,
+    .teams h1,
+    .questions h1,
+    .black {
+        font-size: 6vw;
+    }
+    #playerName {
+        font-size: 4vw;
+    }
+    .rightContent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 5vh;
+        padding-top: 0vh;
+        align-items: center;
+    }
+    .rightContent h1 {
+        font-size: 6vw;
+    }
+    .smallQR {
+        display: none;
+    }
+    #goBack1 {
+        display: none;
+    }
+    #goBack2 {
+        display: block;
+    }
+    #option1 {
+        background: none;
+        padding: 0;
+        font-size: 1.3vh;
+    }
+    #option2 {
+        background: none;
+        padding: 0;
+        font-size: 1.3vh;
+    }
+    #option3 {
+        background: none;
+        padding: 0;
+        font-size: 1.3vh;
+    }
 }

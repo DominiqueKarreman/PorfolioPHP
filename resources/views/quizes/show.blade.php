@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/svg" href="/images/logo.svg" />
     <link rel="stylesheet" href="/css/cms.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>Login</title>
@@ -57,8 +58,16 @@
                 <p>{{ $quiz->is_active == 1 ? 'Active' : 'Inactive' }}</p>
             </div>
             <div class="players">
-                <h1>players:</h1>
+                <h1>Players: <a class="startQuiz" href="{{route("quizes.players", $quiz->id)}}">view all</a></h1>
                 <p>{{ $quiz->count}}</p>
+            </div>
+            <div class="players">
+                <h1>Questions: <a class="startQuiz" href="{{route("quizes.questions", $quiz->id)}}">view all</a></h1>
+                <p>{{ count($questions)}}</p>
+            </div>
+
+            <div class="players">
+               <a class="startQuiz" href="{{route("quizes.activate", $quiz->id)}}">Start Quiz</a>
             </div>
             <button id="showQr"class="showQr">
                 Show QR

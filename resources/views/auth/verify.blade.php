@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="icon" type="image/svg" href="/images/logo.svg" />
 <link rel="stylesheet" href="/css/login_register.css">
 <div class="container">
     <div class="row justify-content-center">

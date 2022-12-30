@@ -66,6 +66,9 @@ Route::post('quizes/{id}/teams', [App\Http\Controllers\TeamsController::class, '
 Route::get('quizes/{id}/teams', [App\Http\Controllers\TeamsController::class, 'index'])->name('teams.index');
 Route::get('quizes/{id}/createTeam', [App\Http\Controllers\TeamsController::class, 'createTeam'])->name('teams.create');
 //quiz routes
+Route::get('/quizes/{id}/activate', [App\Http\Controllers\QuizesController::class, 'activateQuiz'])->name('quizes.activate');
+Route::get('/quizes/{id}/start', [App\Http\Controllers\QuizesController::class, 'startQuiz'])->name('quizes.start');
+Route::get('/quizes/{id}/players', [App\Http\Controllers\QuizesController::class, 'getPlayers'])->name('quizes.players');
 Route::get('/quizes/{id}/quizScreen', [App\Http\Controllers\QuizesController::class, 'quizScreen'])->name('quizes.quizScreen');
 Route::get('/quizes', [App\Http\Controllers\QuizesController::class, 'index'])->name('quizes');
 Route::get('/quizes/show/{id}', [App\Http\Controllers\QuizesController::class, 'getQuiz'])->name('quizes.show');
@@ -80,3 +83,10 @@ Route::get('/players/quizes', [App\Http\Controllers\PlayersController::class, 'g
 Route::get('/players/quizes/{id}', [App\Http\Controllers\PlayersController::class, 'getQuiz'])->name('players.quizes.show');
 
 //question routes
+Route::get('/quizes/{id}/questions', [App\Http\Controllers\QuestionsController::class, 'index'])->name('quizes.questions');
+Route::get('/quizes/{id}/question/{question_id}', [App\Http\Controllers\QuestionsController::class, 'show'])->name('questions.show');
+Route::get('/quizes/{id}/questions/create', [App\Http\Controllers\QuestionsController::class, 'create'])->name('questions.create');
+Route::post('/quizes/{id}/questions/store', [App\Http\Controllers\QuestionsController::class, 'store'])->name('questions.store');
+Route::get('/quizes/{id}/questions/edit/{question_id}', [App\Http\Controllers\QuestionsController::class, 'edit'])->name('questions.edit');
+Route::post('/quizes/{id}/questions/update/{question_id}', [App\Http\Controllers\QuestionsController::class, 'update'])->name('questions.update');
+Route::get('/quizes/{id}/questions/delete/{question_id}', [App\Http\Controllers\QuestionsController::class, 'delete'])->name('questions.delete');
