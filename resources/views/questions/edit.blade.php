@@ -73,7 +73,20 @@
                         @enderror
                     </div>
                 </div>
-                
+                <div class="row mb-3">
+                    <label for="answer" class="email_label">{{ __('Answer') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="answer" value="{{$answerString}}"class="textinput @error('question') is-invalid @enderror" name="answer"
+                            required></input>
+
+                        @error('answer')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <label for="date" class="email_label">{{ __('Upload question image') }}</label>
 

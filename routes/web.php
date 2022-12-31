@@ -72,6 +72,7 @@ Route::get('/quizes/{id}/players', [App\Http\Controllers\QuizesController::class
 Route::get('/quizes/{id}/quizScreen', [App\Http\Controllers\QuizesController::class, 'quizScreen'])->name('quizes.quizScreen');
 Route::get('/quizes', [App\Http\Controllers\QuizesController::class, 'index'])->name('quizes');
 Route::get('/quizes/show/{id}', [App\Http\Controllers\QuizesController::class, 'getQuiz'])->name('quizes.show');
+Route::get('/quizes/show/{id}/master', [App\Http\Controllers\QuizesController::class, 'getQuizMaster'])->name('quizes.show.master');
 Route::get('/quizes/edit/{id}', [App\Http\Controllers\QuizesController::class, 'editQuiz'])->name('quizes.edit');
 Route::get('/quizes/create', [App\Http\Controllers\QuizesController::class, 'createQuiz'])->name('quizes.create');
 Route::post('/quizes/store', [App\Http\Controllers\QuizesController::class, 'storeQuiz'])->name('quizes.store');
@@ -83,6 +84,8 @@ Route::get('/players/quizes', [App\Http\Controllers\PlayersController::class, 'g
 Route::get('/players/quizes/{id}', [App\Http\Controllers\PlayersController::class, 'getQuiz'])->name('players.quizes.show');
 
 //question routes
+Route::get('/quizes/{id}/question/{question_id}/active', [App\Http\Controllers\QuestionsController::class, 'activeQuestion'])->name('quizes.active.question');
+Route::get('/quizes/{id}/question/{question_id}/answers', [App\Http\Controllers\QuestionsController::class, 'getAnswers'])->name('questions.answers');
 Route::get('/quizes/{id}/questions', [App\Http\Controllers\QuestionsController::class, 'index'])->name('quizes.questions');
 Route::get('/quizes/{id}/question/{question_id}', [App\Http\Controllers\QuestionsController::class, 'show'])->name('questions.show');
 Route::get('/quizes/{id}/questions/create', [App\Http\Controllers\QuestionsController::class, 'create'])->name('questions.create');
@@ -90,3 +93,15 @@ Route::post('/quizes/{id}/questions/store', [App\Http\Controllers\QuestionsContr
 Route::get('/quizes/{id}/questions/edit/{question_id}', [App\Http\Controllers\QuestionsController::class, 'edit'])->name('questions.edit');
 Route::post('/quizes/{id}/questions/update/{question_id}', [App\Http\Controllers\QuestionsController::class, 'update'])->name('questions.update');
 Route::get('/quizes/{id}/questions/delete/{question_id}', [App\Http\Controllers\QuestionsController::class, 'delete'])->name('questions.delete');
+
+Route::get('quizes/{id}/question/{question_id}/results/{answer}/{volgorde}', [App\Http\Controllers\QuestionsController::class, 'getResults'])->name('questions.results');
+Route::get('quizes/{id}/question/{question_id}/next/{answer}/{volgorde}', [App\Http\Controllers\QuestionsController::class, 'nextQuestion'])->name('questions.next');
+Route::get('/quizes/{id}/end', [App\Http\Controllers\QuestionsController::class, 'endQuiz'])->name('quizes.active.end');
+
+
+//Master
+Route::get('/quizes/{id}/endMaster', [App\Http\Controllers\QuestionsController::class, 'endQuizMaster'])->name('quizes.master.end');
+Route::get('/quizes/{id}/activateMaster', [App\Http\Controllers\QuizesController::class, 'activateQuiz'])->name('quizes.activateMaster');
+Route::get('/quizes/{id}/questions/{question_id}/master', [App\Http\Controllers\QuestionsController::class, 'masterQuestion'])->name('quizes.master.question');
+Route::get('/quizes/{id}/questions/{question_id}/nextMaster', [App\Http\Controllers\QuestionsController::class, 'nextQuestionMaster'])->name('quizes.master.next');
+Route::get('/quizes/{id}/question/{question_id}/{volgorde}/resultsMaster', [App\Http\Controllers\QuestionsController::class, 'resultsMaster'])->name('questions.resultsMaster');

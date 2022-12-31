@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/svg" href="/images/logo.svg" />
+
     <link rel="stylesheet" href="/css/cms.css">
     <link rel="stylesheet" href="/css/quiz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="/css/login_register.css">
     <title>Login</title>
-    
+
 </head>
 
 <body>
@@ -47,20 +48,18 @@
             </li>
         </ul>
     </nav>
-    <div id="quizContainer" class="container">
+    <div id="quizContainerActive" class="container">
         {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
-        <h1 id="playerTeam">Teams for </h1>
 
-        <div id="quizScreen" class="mainCont">
-            <div class="answers">
 
-                <div class="answer"><div class="letter">A</div> <h1 class="option">antwoord</h1></div>
-                <div class="answer"><div class="letter">B</div> <h1 class="option">antwoord</h1></div>
-                <div class="answer"><div class="letter">C</div> <h1 class="option">antwoord</h1></div>
-                <div class="answer"><div class="letter">D</div> <h1 class="option">antwoord</h1></div>
-            </div>
+        <div id="quizScreenActive" class="mainCont">
+
+
 
         </div>
+
+    </div>
+    </div>
     </div>
 
 </body>

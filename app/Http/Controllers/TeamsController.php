@@ -47,6 +47,6 @@ class TeamsController extends Controller
         $return = DB::insert('INSERT INTO teams (quiz_id, name, created_at, updated_at) VALUES (?, ?,?,?)', [$id, $request->name, now(), now()]);
         
         DB::update('UPDATE players SET team_id = ? WHERE name = ?', [DB::getPdo()->lastInsertId(), $request->player]);
-        return redirect()->route('quizes.quizScreen', $id);
+        return redirect()->route('quizes.start', $id);
     }
 }

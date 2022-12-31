@@ -26,12 +26,7 @@
             {{-- <li><a href="{{ route('home') }}">Home</a></li>
             <li><a class="active"href="{{ route('quizes') }}"> Quizes</a></li>
             <li><a href="#">Posts</a></li> --}}
-
             <li class="nav-item dropdown">
-
-
-
-
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('players.logout') }}"
                         onclick="event.preventDefault();
@@ -49,12 +44,9 @@
     <div id="teamscontainer" class="container">
         {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
         <h1 id="teamsHeader">Teams for {{ $quiz->title }}</h1>
-
         <div id="teamsMainCont" class="mainCont">
-
             <table>
                 <thead>
-
                     <tr id="toprow">
                         <th>Team name</th>
                         <th>Amount of players</th>
@@ -66,12 +58,9 @@
                     <tr>
                         <form method="POST" id="createTeamForm" action="{{ route('teams.store', $quiz->id) }}">
                             @csrf
-
-                        
                       @php
                          {{ date_default_timezone_set('Europe/Amsterdam'); }}
                         @endphp
-    
                         <td><input id="tableinput" class="textinput" type="text" name="name"></td>
                         <td>0</td>
                         <td>{{ date('m/d/Y h:i:s a', time()) }}</td>
@@ -79,7 +68,6 @@
                             document.getElementById('createTeamForm').submit();">Create</a>
                         </td>
                     </tr>
-                    
                     <input type="hidden" name="player" value="{{ Cookie::get('player')}}">
                     <input type="hidden" name="created_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
                     <input type="hidden" name="updated_at" value="{{ date('m/d/Y h:i:s a', time()) }}">
@@ -99,16 +87,12 @@
                     <tr>
                         <td>No teams found</td>
                     </tr>
-
                     @endif
                 </tbody>
             </table>
-
         </div>
     </div>
-
 </body>
-
 </html>
 {{-- @section('content') --}}
 

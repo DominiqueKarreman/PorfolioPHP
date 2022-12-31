@@ -28,6 +28,28 @@ html {
     padding-inline: 4vh;
     border-radius: 2vw;
 }
+.answerCorrect {
+    background-color: #4df62c;
+    width: 30vw;
+    aspect-ratio: 6/1;
+    margin: 1.2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4vh;
+    border-radius: 2vw;
+}
+.answerWrong {
+    background-color: #d12020;
+    width: 30vw;
+    aspect-ratio: 6/1;
+    margin: 1.2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4vh;
+    border-radius: 2vw;
+}
 .letter {
     font-size: 3vh;
     font-weight: bold;
@@ -42,12 +64,13 @@ html {
 }
 .option {
     color: white;
+    font-size: 4vh;
 }
 .answers {
     /* position: absolute; */
 
     left: 20vw;
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -97,12 +120,47 @@ html {
     display: none;
 }
 
+#quizContainerActive {
+    max-height: 80vh;
+ 
+}
+#quizScreenActive {
+    top: 20vh;
+    width: 80vw;
+    max-width: 80vw;
+    height: 90vh;
+    margin-bottom: 0;
+    margin-top: 8vh;
+    flex-wrap: wrap;
+}
+.questionIMG {
+    width:80%;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+}
+.question {
+    width: 40%;
+    height: 100%;
+}
+#test, #test2, #test3, #test4 {
+    padding: none;
+    margin: none;
+}
+
 @media (max-width: 920px) {
     .answers {
         align-content: center;
-        margin-top: 30vh;
+        /* margin-top: 30vh; */
     }
     .answer {
+        width: 75vw;
+        margin: 2vw;
+    }
+    .answerCorrect {
+        width: 75vw;
+        margin: 2vw;
+    }
+    .answerWrong {
         width: 75vw;
         margin: 2vw;
     }
@@ -181,5 +239,32 @@ html {
         background: none;
         padding: 0;
         font-size: 1.3vh;
+    }
+    #quizScreenActive {
+        top: 20vh;
+        width: 80vw;
+        max-width: 80vw;
+        height: 90vh;
+        margin-bottom: 0;
+        margin-top: 8vh;
+        flex-wrap: nowrap;
+    }
+    .questionIMG {
+        width:80%;
+    }
+    .question {
+        width: 100%;
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        
+    }
+    .question h1 {
+        font-size: 6vw;
+        overflow-wrap: anywhere;
+        max-width: 90%;
     }
 }

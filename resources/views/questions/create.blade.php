@@ -42,7 +42,7 @@
     </nav>
     <div class="showQuizContainer">
         <div id="questionCard" class="showQuizCard">
-            <h1>Create quiz</h1>
+            <h1>Create question</h1>
             <form method="POST" action="{{ route('questions.store', $quiz->id) }}" enctype="multipart/form-data">
                 @csrf
 
@@ -76,6 +76,40 @@
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <label for="description" class="email_label">{{ __('Type') }}</label>
+
+                    <div class="col-md-6">
+                        <Select name="type" class="textinput">
+
+                            <option value="multipleChoice">A,B,C,D</option>
+                            <option value="TF">True / False</option>
+                            <option value="Est">Estimate</option>
+                            <option value="One">One Answer</option>
+                        </Select>
+
+                        @error('type')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="answer" class="email_label">{{ __('Answer') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="answer" class="textinput @error('question') is-invalid @enderror" name="answer"
+                            required></input>
+
+                        @error('answer')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <label for="date" class="email_label">{{ __('Upload Question image') }}</label>
 

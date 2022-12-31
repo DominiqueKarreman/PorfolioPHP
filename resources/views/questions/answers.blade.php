@@ -48,44 +48,33 @@
     </nav>
     <div id="teamscontainer" class="container">
         {{-- <img src="/images/dropshadowlogo.png" alt="logo" class="logoDK"> --}}
-        <h1 id="questionsHeader">Questions for {{ $quiz->title }}</h1>
-        <a href="{{ route('questions.create', $quiz->id) }}" id="createQuestion" class="createQuiz">+</a>
+
+
         <div id="teamsMainCont" class="mainCont">
 
             <table>
                 <thead>
 
                     <tr id="toprow">
-                        <th>Index</th>
-                        <th>Title</th>
-                        <th>Question</th>
-                        <th>Options</th>
+                        <th>Correct Answer</th>
+                        <th>Option 1</th>
+                        <th>Option 2</th>
+                        <th>Option 3</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @if (count($questions) > 0)
-                        @foreach ($questions as $question)
-                            <tr>
-                                <td>{{ $question->id }}</td>
-                                <td>{{ $question->title }}</td>
-                                <td>{{ $question->question }}</td>
-                                <td>
-                                    <a id="option1" class="startQuiz"
-                                        href="{{ route('questions.answers', [$quiz->id, $question->id]) }}">Answers</a>
-                                    <a id="option2" class="editQuiz"
-                                        href="{{ route('questions.delete', [$quiz->id, $question->id]) }}">Delete</a>
-                                    <a id="option3" class="editQuiz"
-                                        href="{{ route('questions.edit', [$quiz->id, $question->id]) }}">Edit</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td>No questions found</td>
-                        </tr>
 
-                    @endif
+                    <tr>
+                         
+                        <td>{{ $answers->correctAnswer }}</td>
+                        <td>{{ $answers->option1 }}</td>
+                        <td>{{ $answers->option2 }}</td>
+                        <td>{{ $answers->option3 }}</td>
+
+                    </tr>
+
+
                 </tbody>
             </table>
 

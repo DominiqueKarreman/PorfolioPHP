@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('question');
             $table->string('img_path');
+            $table->string('type');
             $table->foreignId('quiz_id')->references('id')->on('quizes');
             $table->timestamps();
         });

@@ -23,10 +23,19 @@ class QuizesController extends Controller
     {
         $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
         $count = DB::select('SELECT COUNT(*) as count FROM players WHERE quiz_id = ?', [$id]);
-        
-        $result[0]->count = $count[0]->count; 
+
+        $result[0]->count = $count[0]->count;
         $questions = DB::select('SELECT * FROM questions WHERE quiz_id = ?', [$id]);
         return view('quizes.show', ['quiz' => $result[0], 'questions' => $questions]);
+    }
+    public function getQuizMaster($id)
+    {
+        $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
+        $count = DB::select('SELECT COUNT(*) as count FROM players WHERE quiz_id = ?', [$id]);
+
+        $result[0]->count = $count[0]->count;
+        $questions = DB::select('SELECT * FROM questions WHERE quiz_id = ?', [$id]);
+        return view('quizes.master.show', ['quiz' => $result[0], 'questions' => $questions]);
     }
     public function editQuiz($id)
     {
@@ -104,11 +113,18 @@ class QuizesController extends Controller
     }
     public function quizScreen($id)
     {
-        // $result = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
-        // $count = DB::select('SELECT COUNT(*) as count FROM players WHERE quiz_id = ?', [$id]);
-        // $result[0]->count = $count[0]->count;
-        return view('quizes.quiz');
+        $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
+
+        if ($quiz[0]->is_active == 0) {
+            return redirect()->route('quizes.start', $id)->with('error', 'Quiz is not active yet');
+        }
+        $question_id = DB::select('SELECT id FROM questions WHERE quiz_id = ? ORDER BY id ASC LIMIT 1', [$id]);
+
+        return redirect()->route('quizes.active.question', [$id, $question_id[0]->id]);
+
     }
+   
+
     public function getPlayers($id)
     {
         $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
@@ -118,19 +134,24 @@ class QuizesController extends Controller
         return view('quizes.showPlayers', ['players' => $result, 'quiz' => $quiz[0], 'teams' => $teams]);
     }
 
-    public function startQuiz($id)
+    public function startQuiz($id, $error = null)
     {
+
         $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
         $teams = DB::select('SELECT * FROM teams WHERE quiz_id = ?', [$id]);
         $players = DB::select('SELECT players.name as player_name, teams.name as team_name, teams.id as team_id, players.id as player_id FROM players LEFT JOIN teams on teams.id = players.team_id WHERE players.quiz_id = ?', [$id]);
         $questions = DB::select('SELECT * FROM questions WHERE quiz_id = ?', [$id]);
-        
-        return view('quizes.quizStart', ['quiz' => $quiz[0], 'teams' => $teams, 'players' => $players, 'questions' => $questions]);
+
+        return view('quizes.quizStart', ['quiz' => $quiz[0], 'teams' => $teams, 'players' => $players, 'questions' => $questions, 'error' => $error]);
     }
 
     public function activateQuiz($id)
     {
+
         $result = DB::update('UPDATE quizes SET is_active = 1 WHERE id = ?', [$id]);
-        return redirect()->route('quizes.quizScreen', $id);
+        $question_id = DB::select('SELECT id FROM questions WHERE quiz_id = ? ORDER BY id ASC LIMIT 1', [$id]);
+        DB::update('UPDATE quizes SET current_question_id = ? WHERE id = ?', [$question_id[0]->id, $id]);
+        return redirect()->route('quizes.master.question', [$id, $question_id[0]->id]);
     }
+  
 }
