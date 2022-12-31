@@ -57,7 +57,7 @@
                 <h1 class="questionText">{{ $question->title }}</h1>
                 <h1 class="questionText">{{ $question->question }}</h1>
 
-                <img class="questionIMG" src="../../../../{{ $question->img_path }}" alt="pic">
+                <img class="questionIMG" src="../../../../../{{ $question->img_path }}" alt="pic">
             </div>
             <div class="answers">
                 @if ($question->type == 'multipleChoice')

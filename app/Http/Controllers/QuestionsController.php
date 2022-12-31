@@ -39,11 +39,11 @@ class QuestionsController extends Controller
         $answerString = $request->input('answer');
 
         $answerArray = explode('_', $answerString);
-      
+
         if ($type == 'TF') {
             array_push($answerArray, 'null', 'null');
         }
-         
+
         DB::insert('INSERT INTO answers (correctAnswer, option1, option2, option3, question_id) VALUES (?, ?, ?, ?, ?)', [$answerArray[0], $answerArray[1], $answerArray[2], $answerArray[3], DB::getPdo()->lastInsertId()]);
 
         return redirect()->route('quizes.questions', $id);
@@ -54,7 +54,7 @@ class QuestionsController extends Controller
         $question = DB::select('SELECT * FROM questions WHERE id = ?', [$question_id]);
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answerString = $answers[0]->correctAnswer . '_' . $answers[0]->option1 . '_' . $answers[0]->option2 . '_' . $answers[0]->option3;
-        
+
         return view('questions.edit', ['question' => $question[0], 'quiz' => $quiz[0], 'answerString' => $answerString]);
     }
 
@@ -93,8 +93,8 @@ class QuestionsController extends Controller
         $type = DB::select('SELECT type FROM questions WHERE id = ?', [$question_id]);
         $type = $type[0]->type;
 
-        
-     
+
+
         $result = DB::update('UPDATE answers SET correctAnswer = ?, option1 = ?, option2 = ?, option3 = ? WHERE question_id = ?', [$answersArray[0], $answersArray[1], $answersArray[2], $answersArray[3], $question_id]);
 
         return redirect()->route('quizes.questions', $id);
@@ -106,7 +106,7 @@ class QuestionsController extends Controller
         return view('questions.answers', ['answers' => $answers[0], 'question_id' => $question_id, 'id' => $id]);
     }
 
-    public function getResults($id, $question_id, $answer, $volgorde)
+    public function getResults($id, $question_id, $answer, $volgorde, $first)
     {
         $volgorde = explode('_', $volgorde);
 
@@ -115,24 +115,33 @@ class QuestionsController extends Controller
         $player = DB::select('SELECT * FROM players WHERE name = ?', [$name]);
         $question = DB::select('SELECT * FROM questions WHERE id = ?', [$question_id]);
         $quiz = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
-        if ($answers[0]->correctAnswer == $answer) {
-            $results = 'Correct';
-            if ($player[0]->right == null) {
-                DB::update('UPDATE players set `right` =  1 WHERE id = ?', [$player[0]->id]);
-            } else {
+        if ($first == 'true') {
+            if ($answers[0]->correctAnswer == $answer) {
+                $results = 'Correct';
+                if ($player[0]->right == null) {
+                    DB::update('UPDATE players set `right` =  1 WHERE id = ?', [$player[0]->id]);
+                } else {
 
-                DB::update('UPDATE players set `right` = `right` + 1 WHERE id = ?', [$player[0]->id]);
+                    DB::update('UPDATE players set `right` = `right` + 1 WHERE id = ?', [$player[0]->id]);
+                }
+            } else {
+                $results = 'Wrong';
+                if ($player[0]->right == null) {
+                    DB::update('UPDATE players set wrong =  1 WHERE id = ?', [$player[0]->id]);
+                } else {
+
+                    DB::update('UPDATE players set wrong = wrong + 1 WHERE id = ?', [$player[0]->id]);
+                }
             }
         } else {
-            $results = 'Wrong';
-            if ($player[0]->right == null) {
-                DB::update('UPDATE players set wrong =  1 WHERE id = ?', [$player[0]->id]);
-            } else {
+            if ($answers[0]->correctAnswer == $answer) {
+                $results = 'Correct';
 
-                DB::update('UPDATE players set wrong = wrong + 1 WHERE id = ?', [$player[0]->id]);
+            } else {
+                $results = 'Wrong';
             }
         }
-   
+
         $correct = $answers[0]->correctAnswer;
         // dd($id, $question_id, $answer, $results);
         // dd($answers[0], $question[0], $answer, $quiz[0]);
@@ -145,10 +154,10 @@ class QuestionsController extends Controller
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answers = $answers[0];
         $options = [$answers->option1, $answers->option2, $answers->option3, $answers->correctAnswer];
-        if($question[0]->type == 'multipleChoice'){
+        if ($question[0]->type == 'multipleChoice') {
             shuffle($options);
         }
-        if($question[0]->type == 'TF'){
+        if ($question[0]->type == 'TF') {
             $options = ['True', 'False'];
         }
 
@@ -162,10 +171,10 @@ class QuestionsController extends Controller
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answers = $answers[0];
         $options = [$answers->option1, $answers->option2, $answers->option3, $answers->correctAnswer];
-        if($question[0]->type == 'multipleChoice'){
+        if ($question[0]->type == 'multipleChoice') {
             shuffle($options);
         }
-        if($question[0]->type == 'TF'){
+        if ($question[0]->type == 'TF') {
             $options = ['True', 'False'];
         }
 
@@ -176,7 +185,7 @@ class QuestionsController extends Controller
         $masterCurrentQuestion = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
         $masterCurrentQuestion = $masterCurrentQuestion[0]->current_question_id;
         if ($question_id == $masterCurrentQuestion) {
-            return redirect()->route('questions.results', [$id, $question_id, $answer, $volgorde]);
+            return redirect()->route('questions.results', [$id, $question_id, $answer, $volgorde, 'false']);
         }
         $question_ids = DB::select('SELECT * FROM questions WHERE quiz_id = ?', [$id]);
         $question_ids = array_column($question_ids, 'id');

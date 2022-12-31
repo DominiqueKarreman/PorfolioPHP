@@ -94,7 +94,7 @@ Route::get('/quizes/{id}/questions/edit/{question_id}', [App\Http\Controllers\Qu
 Route::post('/quizes/{id}/questions/update/{question_id}', [App\Http\Controllers\QuestionsController::class, 'update'])->name('questions.update');
 Route::get('/quizes/{id}/questions/delete/{question_id}', [App\Http\Controllers\QuestionsController::class, 'delete'])->name('questions.delete');
 
-Route::get('quizes/{id}/question/{question_id}/results/{answer}/{volgorde}', [App\Http\Controllers\QuestionsController::class, 'getResults'])->name('questions.results');
+Route::get('quizes/{id}/question/{question_id}/results/{answer}/{volgorde}/{first}', [App\Http\Controllers\QuestionsController::class, 'getResults'])->name('questions.results');
 Route::get('quizes/{id}/question/{question_id}/next/{answer}/{volgorde}', [App\Http\Controllers\QuestionsController::class, 'nextQuestion'])->name('questions.next');
 Route::get('/quizes/{id}/end', [App\Http\Controllers\QuestionsController::class, 'endQuiz'])->name('quizes.active.end');
 

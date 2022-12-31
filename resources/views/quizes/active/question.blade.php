@@ -62,28 +62,28 @@
             @if($question->type == 'multipleChoice')
             <div class="answers">
             <a id="test1" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                     <div id="Answer1" class="answer">
                         <div class="letter">A</div>
                         <h1 class="option">{{ $answer[0] }}</h1>
                     </div>
             </a>
             <a id="test2" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[1], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[1], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                 <div id="Answer2" class="answer">
                     <div class="letter">B</div>
                     <h1 class="option">{{ $answer[1] }}</h1>
                 </div>
             </a>
             <a id="test3" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[2], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[2], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                 <div id="Answer3" class="answer">
                     <div class="letter">C</div>
                     <h1 class="option">{{ $answer[2] }}</h1>
                 </div>
             </a>
             <a id="test4" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[3], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[3], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                 <div id="Answer4" class="answer">
                     <div class="letter">D</div>
                     <h1 class="option">{{ $answer[3] }}</h1>
@@ -95,7 +95,7 @@
             @if($question->type == 'TF')
             <div class="answers">
             <a id="test1" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                 <div class="answers">
                     <div id="Answer1" class="answer">
                         <div class="letter">A</div>
@@ -103,7 +103,7 @@
                     </div>
             </a>
             <a id="test2" class="test"
-                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[1], 'volgorde' => implode("_", $answer)]) }}">
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[1], 'volgorde' => implode("_", $answer), 'first' => 'true']) }}">
                 <div id="Answer2" class="answer">
                     <div class="letter">B</div>
                     <h1 class="option">{{ $answer[1] }}</h1>
