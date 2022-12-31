@@ -91,7 +91,7 @@
                     </h1>
                 @endif
             @endforeach
-
+                    <a class="startQuiz" href="{{route('quizes')}}">Go back</a>
         </div>
 
     </div>
