@@ -102,6 +102,8 @@ Route::get('/quizes/{id}/end', [App\Http\Controllers\QuestionsController::class,
 //Master
 Route::get('/quizes/{id}/endMaster', [App\Http\Controllers\QuestionsController::class, 'endQuizMaster'])->name('quizes.master.end');
 Route::get('/quizes/{id}/activateMaster', [App\Http\Controllers\QuizesController::class, 'activateQuiz'])->name('quizes.activateMaster');
+Route::get('/quizes/{id}/deactivateMaster', [App\Http\Controllers\QuizesController::class, 'deactivateQuiz'])->name('quizes.deactivateMaster');
+
 Route::get('/quizes/{id}/questions/{question_id}/master', [App\Http\Controllers\QuestionsController::class, 'masterQuestion'])->name('quizes.master.question');
 Route::get('/quizes/{id}/questions/{question_id}/nextMaster', [App\Http\Controllers\QuestionsController::class, 'nextQuestionMaster'])->name('quizes.master.next');
 Route::get('/quizes/{id}/question/{question_id}/{volgorde}/resultsMaster', [App\Http\Controllers\QuestionsController::class, 'resultsMaster'])->name('questions.resultsMaster');

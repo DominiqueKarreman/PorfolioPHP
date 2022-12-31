@@ -67,7 +67,10 @@
             </div>
 
             <div class="players">
-               <a class="startQuiz" href="{{route("quizes.activateMaster", $quiz->id)}}">Start Quiz</a>
+                <a class="startQuiz" href="{{route("quizes.activateMaster", $quiz->id)}}">Start Quiz</a>
+                @if($quiz->is_active == 1)
+                <a class="editQuiz" href="{{route("quizes.deactivateMaster", $quiz->id)}}">Deactivate Quiz</a>
+                @endif
             </div>
             <button id="showQr"class="showQr">
                 Show QR

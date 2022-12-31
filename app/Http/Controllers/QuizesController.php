@@ -153,5 +153,15 @@ class QuizesController extends Controller
         DB::update('UPDATE quizes SET current_question_id = ? WHERE id = ?', [$question_id[0]->id, $id]);
         return redirect()->route('quizes.master.question', [$id, $question_id[0]->id]);
     }
+    public function deactivateQuiz($id)
+    {
+
+        $result = DB::update('UPDATE quizes SET is_active = 0 WHERE id = ?', [$id]);
+        $question_id = DB::select('SELECT id FROM questions WHERE quiz_id = ? ORDER BY id ASC LIMIT 1', [$id]);
+        DB::update('UPDATE quizes SET current_question_id = ? WHERE id = ?', [null, $id]);
+        //reset players wrong right answers
+        DB::update('UPDATE players SET `right` = 0, wrong = 0 WHERE quiz_id = ?', [$id]);
+        return redirect()->route('quizes.show.master', $id);
+    }
   
 }
