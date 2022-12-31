@@ -59,9 +59,10 @@
 
                 <img class="questionIMG" src="../../{{ $question->img_path }}" alt="pic">
             </div>
+            @if($question->type == 'multipleChoice')
+            <div class="answers">
             <a id="test1" class="test"
                 href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer)]) }}">
-                <div class="answers">
                     <div id="Answer1" class="answer">
                         <div class="letter">A</div>
                         <h1 class="option">{{ $answer[0] }}</h1>
@@ -88,6 +89,30 @@
                     <h1 class="option">{{ $answer[3] }}</h1>
                 </div>
             </a>
+            </div>
+            @endif
+
+            @if($question->type == 'TF')
+            <div class="answers">
+            <a id="test1" class="test"
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[0], 'volgorde' => implode("_", $answer)]) }}">
+                <div class="answers">
+                    <div id="Answer1" class="answer">
+                        <div class="letter">A</div>
+                        <h1 class="option">{{ $answer[0] }}</h1>
+                    </div>
+            </a>
+            <a id="test2" class="test"
+                href="{{ route('questions.results', ['id' => $quiz->id, 'question_id' => $question->id, 'answer' => $answer[1], 'volgorde' => implode("_", $answer)]) }}">
+                <div id="Answer2" class="answer">
+                    <div class="letter">B</div>
+                    <h1 class="option">{{ $answer[1] }}</h1>
+                </div>
+            </a>
+            </div>
+            @endif
+
+
         </div>
 
     </div>

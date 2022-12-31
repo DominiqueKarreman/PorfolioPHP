@@ -53,8 +53,44 @@
 
 
         <div id="quizScreenActive" class="mainCont">
+            <h1>Top 3</h1>
+            @foreach ($podiums as $podium)
+                @if ($podium->place == 1)
+                    <div class="podium">
+                        <div class="first">
+                            <h1>First: {{ $podium->player_name }} ({{ $podium->team_name }}) Score: {{ $podium->score }}
+                                Right: {{ $podium->right }} Wrong: {{ $podium->wrong }}</h1>
 
+                        </div>
+                    </div>
+                @endif
+                @if ($podium->place == 2)
+                    <div class="podium">
+                        <div class="second">
+                            <h1>Second: {{ $podium->player_name }} ({{ $podium->team_name }}) Score:
+                                {{ $podium->score }} Right: {{ $podium->right }} Wrong: {{ $podium->wrong }}</h1>
 
+                        </div>
+                    </div>
+                @endif
+                @if ($podium->place == 3)
+                    <div class="podium">
+                        <div class="third">
+                            <h1>Third: {{ $podium->player_name }} ({{ $podium->team_name }}) Score:
+                                {{ $podium->score }} Right: {{ $podium->right }} Wrong: {{ $podium->wrong }}</h1>
+
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+
+            <h1>Rest</h1>
+            @foreach ($players as $player)
+                @if ($player->podiumPlayer === 'false')
+                    <h1>{{ $player->player_name }} ({{ $player->team_name }}) Score: {{ $player->score }}
+                    </h1>
+                @endif
+            @endforeach
 
         </div>
 

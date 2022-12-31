@@ -37,7 +37,13 @@ class QuestionsController extends Controller
         $result = DB::insert('INSERT INTO questions (title, question, quiz_id, type, img_path) VALUES (?, ?, ?,?,?)', [$title, $question, $id, $type, $img_path]);
 
         $answerString = $request->input('answer');
+
         $answerArray = explode('_', $answerString);
+      
+        if ($type == 'TF') {
+            array_push($answerArray, 'null', 'null');
+        }
+         
         DB::insert('INSERT INTO answers (correctAnswer, option1, option2, option3, question_id) VALUES (?, ?, ?, ?, ?)', [$answerArray[0], $answerArray[1], $answerArray[2], $answerArray[3], DB::getPdo()->lastInsertId()]);
 
         return redirect()->route('quizes.questions', $id);
@@ -48,6 +54,7 @@ class QuestionsController extends Controller
         $question = DB::select('SELECT * FROM questions WHERE id = ?', [$question_id]);
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answerString = $answers[0]->correctAnswer . '_' . $answers[0]->option1 . '_' . $answers[0]->option2 . '_' . $answers[0]->option3;
+        
         return view('questions.edit', ['question' => $question[0], 'quiz' => $quiz[0], 'answerString' => $answerString]);
     }
 
@@ -82,6 +89,12 @@ class QuestionsController extends Controller
         $result = DB::update('UPDATE questions SET title = ?, question = ?, img_path = ? WHERE id = ?', [$title, $question, $img_path, $question_id]);
         $answersString = $request->input('answer');
         $answersArray = explode('_', $answersString);
+
+        $type = DB::select('SELECT type FROM questions WHERE id = ?', [$question_id]);
+        $type = $type[0]->type;
+
+        
+     
         $result = DB::update('UPDATE answers SET correctAnswer = ?, option1 = ?, option2 = ?, option3 = ? WHERE question_id = ?', [$answersArray[0], $answersArray[1], $answersArray[2], $answersArray[3], $question_id]);
 
         return redirect()->route('quizes.questions', $id);
@@ -119,6 +132,7 @@ class QuestionsController extends Controller
                 DB::update('UPDATE players set wrong = wrong + 1 WHERE id = ?', [$player[0]->id]);
             }
         }
+   
         $correct = $answers[0]->correctAnswer;
         // dd($id, $question_id, $answer, $results);
         // dd($answers[0], $question[0], $answer, $quiz[0]);
@@ -131,7 +145,12 @@ class QuestionsController extends Controller
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answers = $answers[0];
         $options = [$answers->option1, $answers->option2, $answers->option3, $answers->correctAnswer];
-        shuffle($options);
+        if($question[0]->type == 'multipleChoice'){
+            shuffle($options);
+        }
+        if($question[0]->type == 'TF'){
+            $options = ['True', 'False'];
+        }
 
 
         return view('quizes.master.question', ['quiz' => $quiz[0], 'question' => $question[0], 'answer' => $options]);
@@ -143,8 +162,12 @@ class QuestionsController extends Controller
         $answers = DB::select('SELECT * FROM answers WHERE question_id = ?', [$question_id]);
         $answers = $answers[0];
         $options = [$answers->option1, $answers->option2, $answers->option3, $answers->correctAnswer];
-        shuffle($options);
-       
+        if($question[0]->type == 'multipleChoice'){
+            shuffle($options);
+        }
+        if($question[0]->type == 'TF'){
+            $options = ['True', 'False'];
+        }
 
         return view('quizes.active.question', ['quiz' => $quiz[0], 'question' => $question[0], 'answer' => $options]);
     }
@@ -152,7 +175,7 @@ class QuestionsController extends Controller
     {
         $masterCurrentQuestion = DB::select('SELECT * FROM quizes WHERE id = ?', [$id]);
         $masterCurrentQuestion = $masterCurrentQuestion[0]->current_question_id;
-        if($question_id == $masterCurrentQuestion){
+        if ($question_id == $masterCurrentQuestion) {
             return redirect()->route('questions.results', [$id, $question_id, $answer, $volgorde]);
         }
         $question_ids = DB::select('SELECT * FROM questions WHERE quiz_id = ?', [$id]);
@@ -160,13 +183,13 @@ class QuestionsController extends Controller
         $questions_length = count($question_ids);
 
         $index = array_search($question_id, $question_ids);
-        if($index == $questions_length - 1){
-            return redirect()->route('quizes.active.end', $id);
+        if ($index == $questions_length - 1) {
+            return redirect()->route('quizes.master.end', $id);
         }
         $index = $index + 1;
         $nextQuestion = $question_ids[$index];
         return redirect()->route('quizes.active.question', [$id, $nextQuestion]);
-        
+
 
     }
     public function nextQuestionMaster($id, $question_id)
@@ -176,7 +199,7 @@ class QuestionsController extends Controller
         $questions_length = count($question_ids);
 
         $index = array_search($question_id, $question_ids);
-        if($index == $questions_length - 1){
+        if ($index == $questions_length - 1) {
             DB::update('UPDATE quizes set current_question_id = ? WHERE id = ?', [-1, $id]);
             return redirect()->route('quizes.master.end', $id);
         }
@@ -198,13 +221,59 @@ class QuestionsController extends Controller
         return view('quizes.master.results', ['answer' => $volgorde, 'correct' => $correct, 'question' => $question[0], 'quiz' => $quiz[0], 'answers' => $answers[0]]);
 
     }
-    public function endQuizMaster (){
+    public function endQuizMaster($id)
+    {
+        // dd($id);
+        $playersCheck = DB::select('SELECT * FROM players WHERE quiz_id = ?', [$id]);
+        foreach ($playersCheck as $player) {
+            if ($player->right == null) {
+                DB::update('UPDATE players set `right` = 0 WHERE id = ?', [$player->id]);
+            }
+            if ($player->wrong == null) {
+                DB::update('UPDATE players set wrong = 0 WHERE id = ?', [$player->id]);
+            }
+        }
+
+        $players = DB::select('SELECT players.name as player_name, teams.name as team_name, `right`, wrong, `right` - wrong as score FROM players Left JOIN teams ON players.team_id = teams.id WHERE players.quiz_id = ? ORDER BY score DESC  ', [$id]);
+        // dd($players);
+
+        $podiums = DB::select('SELECT players.name as player_name, teams.name as team_name, `right`, wrong, `right` - wrong as score FROM players Left JOIN teams ON players.team_id = teams.id WHERE players.quiz_id = ? ORDER BY score DESC LIMIT 3', [$id]);
+
+        //delete podiums from players
+        foreach ($players as $player) {
+            foreach ($podiums as $podium) {
+                if ($player->player_name == $podium->player_name) {
+                    $player->podiumPlayer = 'true';
+                    break;
+                } else {
+                    $player->podiumPlayer = 'false';
+                }
+            }
+        }
+
+        $place = 0;
+        foreach ($podiums as $podium) {
+            if ($place == 0) {
+                $podium->place = 1;
+            } elseif ($place == 1) {
+                $podium->place = 2;
+            } elseif ($place == 2) {
+                $podium->place = 3;
+            }
+            $place++;
+
+        }
+
+        // dd( $players);
+
+
+        return view('quizes.master.end', ['players' => $players, 'podiums' => $podiums]);
+    }
+    public function endQuiz()
+    {
         return view('quizes.master.end');
     }
-    public function endQuiz (){
-        return view('quizes.active.end');
-    }
-    
+
 
 
 

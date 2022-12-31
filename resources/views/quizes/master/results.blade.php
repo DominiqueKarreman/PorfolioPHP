@@ -60,14 +60,14 @@
                 <img class="questionIMG" src="../../../../{{ $question->img_path }}" alt="pic">
             </div>
             <div class="answers">
-
-                @if ($correct != $answer[0])
-                    <div id="Answer1" class="answerWrong">
-                    @else
-                        <div id="Answer1" class="answerCorrect">
-                @endif
-                <div class="letter">A</div>
-                <h1 class="option">{{ $answer[0] }}</h1>
+                @if ($question->type == 'multipleChoice')
+                    @if ($correct != $answer[0])
+                        <div id="Answer1" class="answerWrong">
+                        @else
+                            <div id="Answer1" class="answerCorrect">
+                    @endif
+                    <div class="letter">A</div>
+                    <h1 class="option">{{ $answer[0] }}</h1>
             </div>
 
 
@@ -100,8 +100,26 @@
     <div class="letter">D</div>
     <h1 class="option">{{ $answer[3] }}</h1>
     </div>
-    <a class="startQuiz"
-        href="{{ route('quizes.master.next', [$quiz->id, $question->id]) }}">Next</a>
+    @endif
+    @if ($question->type == 'TF')
+        @if ($correct != $answer[0])
+            <div id="Answer1" class="answerWrong">
+            @else
+                <div id="Answer1" class="answerCorrect">
+        @endif
+        <div class="letter">A</div>
+        <h1 class="option">{{ $answer[0] }}</h1>
+        </div>
+        @if ($correct != $answer[1])
+            <div id="Answer2" class="answerWrong">
+            @else
+                <div id="Answer2" class="answerCorrect">
+        @endif
+        <div class="letter">B</div>
+        <h1 class="option">{{ $answer[1] }}</h1>
+        </div>
+    @endif
+    <a class="startQuiz" href="{{ route('quizes.master.next', [$quiz->id, $question->id]) }}">Next</a>
     </div>
 
     </div>
