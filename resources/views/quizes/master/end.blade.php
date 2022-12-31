@@ -91,7 +91,11 @@
                     </h1>
                 @endif
             @endforeach
-                    <a class="startQuiz" href="{{route('quizes')}}">Go back</a>
+            @if (Auth::user())
+                <a class="startQuiz" href="{{ route('quizes') }}">Go back</a>
+            @else
+                <a class="startQuiz" href="{{ route('players.quizes') }}">Go back 2</a>
+            @endif
         </div>
 
     </div>
