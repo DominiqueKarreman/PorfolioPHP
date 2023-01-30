@@ -14,9 +14,31 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css">
     <!-- Scripts -->
-    @vite(['resources/css/app.css','resources/js/app.js'])
-    @vite(['public/css/app.css','public/js/app.js'])
+    {{-- @vite(['resources/css/app.css','resources/js/app.js']) --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- @vite(['/css/app.css','/js/app.js']) --}}
     {{-- @vite([ getcwd() . "/sass/app.scss", 'resources/js/app.js']) --}}
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    </head>
 </head>
 
 
