@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <!-- Scripts -->
     @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['public/css/app.css','public/js/app.js'])
     {{-- @vite([ getcwd() . "/sass/app.scss", 'resources/js/app.js']) --}}
 </head>
 
