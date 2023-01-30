@@ -60,6 +60,7 @@ class QuizesController extends Controller
         $title = $request->input('title');
         $description = $request->input('description');
         $date = $request->input('date');
+    
         $result = DB::insert('INSERT INTO quizes (title, description, date, is_active, qr_path) VALUES (?, ?, ?,?,?)', [$title, $description, $date, 0, $qr_path]);
         return redirect()->route('quizes');
     }

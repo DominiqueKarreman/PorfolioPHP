@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $count = [
+            'listings' => Listing::count(),
+            'users' => User::count(),
+            'posts' => '0',
+        ];
+        return view('home', ['count' => $count]);
     }
 }

@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +18,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(10)->create();
+
+        $this->call([
+            CategorySeeder::class,
+            PostSeeder::class,
+        ]);
+        User::create([
+            'name' => "Dominique Karreman",
+            'email' => "domikar2010@hotmail.com",
+            'password' => Hash::make("A18082004"),
+        ]);
 
         Listing::create([
             'title' => 'My first listing',

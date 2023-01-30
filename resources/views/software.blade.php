@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/app.css" rel="stylesheet">
+    @vite(['resources/css/app.css','resources/js/app.js'])
     <title>Dominique Karreman : Software</title>
 </head>
 
@@ -38,7 +39,7 @@
                 </div>
             </div>
             <div class="links">
-                <a href="https://www.linkedin.com/in/abhishek-kumar-0a1b1b1b1/">
+                <a  href="https://www.linkedin.com/in/abhishek-kumar-0a1b1b1b1/">
                     #Portfolio
                 </a>
                 <a href="https://www.linkedin.com/in/abhishek-kumar-0a1b1b1b1/">

@@ -1,80 +1,62 @@
- <!DOCTYPE html>
- <html lang="en">
+@extends('layouts.app')
 
- <head>
-     <link rel="icon" type="image/svg" href="/images/logo.svg" />
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <link rel="stylesheet" href="/css/cms.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-     <title>CMS</title>
- </head>
+@section('content')
+ 
+<div class="p-4 sm:ml-64">
+  <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+     <div class="grid grid-cols-3 gap-4 mb-4">
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Amount of posts: {{$count["posts"]}}</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are all of the posts currently active on the Dkvisuals photography portfolio site. click on the button below to manage the current posts.</p>
+        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+           Manage posts
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+    </div>
+        <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+     </div>
+     <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+     </div>
+     <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+     </div>
+     <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+        <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+     </div>
+     <div class="grid grid-cols-2 gap-4">
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+        <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+           <p class="text-2xl text-gray-400 dark:text-gray-500">+</p>
+        </div>
+     </div>
+  </div>
+</div>
+ @endsection
 
- <body>
-     {{-- <div class="wrapper">
-        <input type="checkbox" id="btn" hidden>
-        <label for="btn" class="menu-btn">
-          <i class="fas fa-bars"></i>
-          <i class="fas fa-times"></i>
-        </label>
-        <nav id="sidebar">
-          <div class="title">Side Menu</div>
-          <ul class="list-items">
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-sliders-h"></i>Clients</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Services</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-            <li><a href="#"><i class="fas fa-stream"></i>Features</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>About us</a></li>
-            <li><a href="#"><i class="fas fa-globe-asia"></i>Languages</a></li>
-            <li><a href="#"><i class="fas fa-envelope"></i>Contact us</a></li>
-            <div class="icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-          </ul>
-        </nav>
-      </div>
-      <div class="content">
-        <div class="header">Animated Side Navigation Menu</div>
-        <p>using only HTML and CSS</p>
-      </div> --}}
-
-     <nav>
-         <div class="logo"> {{ Auth::user()->name }}</div>
-         <input type="checkbox" id="click">
-         <label for="click" class="menu-btn">
-             <i class="fas fa-bars"></i>
-         </label>
-         <ul>
-             <li><a class="active" href="#">Home</a></li>
-             <li><a href="{{ route('quizes') }}"> Quizes</a></li>
-             <li><a href="#">Posts</a></li>
-
-             <li class="nav-item dropdown">
-
-
-
-
-                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="{{ route('logout') }}"
-                         onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                         {{ __('Logout') }}
-                     </a>
-
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                         @csrf
-                     </form>
-                 </div>
-             </li>
-         </ul>
-     </nav>
-
-
- </body>
-
- </html>
