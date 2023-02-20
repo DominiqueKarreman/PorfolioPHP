@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
 body {
     margin: 0;
+    background: #1C1C1C;
 }
 .fp-viewing-section1 #fp-nav ul li a span {
     background: red !important;
