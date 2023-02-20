@@ -51,6 +51,12 @@ Route::resource('categories', CategoryController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/photography', function () {
+    return view('photography.home');
+});
+Route::get('/test', function () {
+    return view('photography.test');
+});
 
 Auth::routes();
 

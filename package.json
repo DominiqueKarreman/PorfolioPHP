@@ -40,6 +40,8 @@
 
         "flowbite": "^1.6.3",
 
+        "fullpage.js": "^4.0.17",
+
         "tailwindcss": "^3.2.4"
 
     }

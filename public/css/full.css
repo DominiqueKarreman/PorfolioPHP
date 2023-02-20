@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+body {
+    margin: 0;
+}
+.fp-viewing-section1 #fp-nav ul li a span {
+    background: red !important;
+}
+.fp-viewing-section2 #fp-nav ul li a span {
+    background: blue !important;
+}
+
+.customBorder {
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    width: 15vh;
+    justify-content: center;
+    border-radius: 12vw;
+    font-size: 2vh;
+}
+.drop {
+    /* text-shadow: 0 0.5vh 0.5vh #000000; */
+    /* font-family: "Gloock", serif; */
+    /* text-shadow: 2px 2px 2px black; */
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 0.5vh;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 0.3vh rgb(31, 31, 31);
+    transition: 1s
+}
+.midd {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    
+    
+}
+.drop::before {
+    
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    color: white;
+    overflow: hidden !important;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+    
+    
+}
+.drop:hover::before {
+    width: 100%;
+    font-size: 12vh;
+}
+.drop:hover {
+  
+    font-size: 12vh;
+}
+body {
+    scroll-behavior: smooth;
+}
+
+#main {
+    background-image: url("../images/background1555.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 5%;
+}
+
+.hero {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+}
+
+.hero span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    color: white;
+    font-size: 12vh;
+    line-height: 11vh;
+    font-family: "Gloock", serif;
+    text-shadow: 2px 2px 2px black;
+}
