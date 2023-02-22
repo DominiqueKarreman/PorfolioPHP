@@ -116,3 +116,13 @@ window.onmouseup = e => {
 console.log(('ontouchstart' in document.documentElement))
 var touchDevice = ('ontouchstart' in document.documentElement);
 
+if(touchDevice){
+  console.log('touch device')
+  let menuItems = document.querySelectorAll('.drop');
+
+
+  for(const menuItem of menu) {
+    menuItem.classList.remove('drop');
+    menuItem.classList.add('dropTouch');
+  }
+}
