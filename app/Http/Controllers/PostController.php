@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         //
         //return posts with category
-        dd(phpinfo());
+       
         $posts = DB::table('posts')
             ->join('categories', 'posts.category', '=', 'categories.id')
             ->select('posts.*', 'categories.name')
