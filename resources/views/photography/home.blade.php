@@ -103,10 +103,10 @@
                             data-text="Timeline" class="menuButton text-[9vh] drop">Timeline</button></li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Gear" class="menuButton text-[9vh] drop">Gear</button></li>
+                            data-text="Gear" class="menuButton text-[9vh] dropTouch">Gear</button></li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Hire" class="menuButton text-[9vh] drop">Hire</button></li>
+                            data-text="Hire" class="menuButton text-[9vh] dropTouch">Hire</button></li>
 
                 </ul>
             </div>
