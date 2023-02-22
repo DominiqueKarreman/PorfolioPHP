@@ -61,6 +61,7 @@ class PostController extends Controller
         } else {
             $image = 'null';
         }
+        // dd($image);
         Post::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -68,6 +69,7 @@ class PostController extends Controller
             'category' => $request->input('category'),
             'image' => $image,
         ]);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -128,6 +130,7 @@ class PostController extends Controller
             'category' => $request->input('category'),
             'image' => $image,
         ]);
+        return redirect()->route('posts.index');
     }
 
     /**
