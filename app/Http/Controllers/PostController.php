@@ -121,6 +121,7 @@ class PostController extends Controller
         } else {
             $image = 'null';
         }
+        dd($image);
 
     
         $post->update([
