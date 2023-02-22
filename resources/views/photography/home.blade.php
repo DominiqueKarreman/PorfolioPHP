@@ -90,23 +90,23 @@
                 <ul id="menu" class="flex justify-between flex-row flex-wrap text-right ">
                     <li data-menuanchor="Home"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Home" class="menuButton  text-[6vh] drop">Home</button></li>
+                            data-text="Home" class="menuButton  text-[9vh] drop">Home</button></li>
                     <li
                         data-menuanchor="About"class="h-[5vh] flex items-center w-full text-right justify-end place-content-end">
-                        <button data-text="Work" class="menuButton text-[6vh] drop">Work</button>
+                        <button data-text="Work" class="menuButton text-[9vh] drop">Work</button>
                     </li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="About" class="menuButton text-[6vh] drop">About</button></li>
+                            data-text="About" class="menuButton text-[9vh] drop">About</button></li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Timeline" class="menuButton text-[6vh] drop">Timeline</button></li>
+                            data-text="Timeline" class="menuButton text-[9vh] drop">Timeline</button></li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Gear" class="menuButton text-[6vh] drop">Gear</button></li>
+                            data-text="Gear" class="menuButton text-[9vh] drop">Gear</button></li>
                     <li data-menuanchor="Skills"
                         class="h-[5vh] relative flex items-center w-full text-right justify-end place-content-end"><button 
-                            data-text="Hire" class="menuButton text-[6vh] drop">Hire</button></li>
+                            data-text="Hire" class="menuButton text-[9vh] drop">Hire</button></li>
 
                 </ul>
             </div>
