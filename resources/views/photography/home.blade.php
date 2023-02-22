@@ -114,7 +114,7 @@
         <div id="Work" class="section s2 flex center midd">
             {{-- <h1 class="text-white text-xl text-bold middtext">Work</h1> --}}
             <div data-mouse-down-at="0" data-prev-percentage="0" data-prev-percentage-slow="0" data-mouse-down-at-slow="0" class="image-track">
-                <h1 class="workHero">Work</h1>
+                <h1 id="workHero" class="workHero">Work</h1>
                 <p class="workBody">Here is my work, this is the best of the best. The ones i am most proud of </p>
                 <button class="workButton">Go to portfolio</button>
                 <h1 class="workTitle">My work</h1>

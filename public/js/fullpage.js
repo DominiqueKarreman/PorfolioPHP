@@ -112,3 +112,11 @@ window.onmouseup = e => {
   track.dataset.prevPercentage = track.dataset.percentage;
   track.dataset.prevPercentageSlow = track.dataset.percentageSlow;
 }
+
+console.log(('ontouchstart' in document.documentElement))
+var touchDevice = ('ontouchstart' in document.documentElement);
+if(touchDevice){
+  document.getElementById('workHero').innerHTML = `touch`
+} else {
+  document.getElementById('workHero').innerHTML = `no touch`
+}
