@@ -46,7 +46,9 @@ body {
     
     transition: 1s;
 }
-
+.menu {
+    margin-top: 25%;
+}
 @media (min-width: 640px) {
     .drop {
         -webkit-text-stroke: 0.3vh rgb(31, 31, 31);
@@ -56,6 +58,9 @@ body {
         color: rgb(255, 255, 255);
         text-shadow: -1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(255, 255, 255),
             1px 1px 0 rgb(255, 255, 255);
+    }
+    .menu {
+        margin-top: 0;
     }
 }
 .midd {
@@ -156,9 +161,7 @@ body {
     top: 15%;
     right: 0%;
 }
-.menu {
-    top: 51%;
-}
+
 
 .heroSM span {
     display: flex;
