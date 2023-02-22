@@ -110,6 +110,7 @@ class PostController extends Controller
     {
         // dd($request->image);
         //
+        dd(phpinfo());
         if ($request->hasFile('image')) {
             $oldLink = Post::where('image', $post->image)->get();
       
