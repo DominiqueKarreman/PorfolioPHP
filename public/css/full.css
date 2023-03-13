@@ -333,7 +333,7 @@ body {
     /* font-family: "Gloock", serif; */
     text-align: center;
     width: 100%;
-    z-index: 1;
+    z-index: 12;
 }
 .workButtonSm {
     position: absolute;
@@ -353,7 +353,7 @@ body {
 
     top: 28vh;
     display: flex;
-    z-index: 1;
+    z-index: 12;
 }
 .workHero {
     position: absolute;
