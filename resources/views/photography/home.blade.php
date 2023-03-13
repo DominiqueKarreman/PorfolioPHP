@@ -114,22 +114,22 @@
         
         <div id="Work" class="section s2 flex center midd">
             {{-- <h1 class="text-white text-xl text-bold middtext">Work</h1> --}}
-            <div data-mouse-down-at="0" data-prev-percentage="0" data-prev-percentage-slow="0" data-mouse-down-at-slow="0" class="image-track">
+            <div data-mouse-down-at="0" data-prev-percentage="0" data-prev-percentage-slow="0" data-mouse-down-at-slow="0" style="translate(0%, -50%); object-position: 0% center; pointer-events: none" class="image-track">
                 <h1 id="workHero" class="workHero">Work</h1>
                 <p class="workBody">Here is my work, this is the best of the best. The ones i am most proud of </p>
-                <button class="workButton">Go to portfolio</button>
+                <button style="pointer-events: auto;"class="workButton">Go to portfolio</button>
                 <h1 class="workTitle">My work</h1>
-                <img class="image" src="https://images.unsplash.com/photo-1677058569213-60d147e56d4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1580757468214-c73f7062a5cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1594568284297-7c64464062b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1603486002664-a7319421e133?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1542&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1599454100789-b211e369bd04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1606&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1573523765924-e6c704ce8048?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1595835018349-198460e1d309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80" draggable="false" alt="">
-                <img class="image" src="https://images.unsplash.com/photo-1567196884944-1b4b8f630560?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" draggable="false" alt="">
+                <button style="pointer-events: auto;" id="sm" class="workButtonSm">Go to portfolio</button>
+                <img class="image image-track-img" src="http://www.dominiquekarreman.com/storage/posts/first.jpg" draggable="false" alt="">
+                <img class="image image-track-img" src="http://www.dominiquekarreman.com/storage/posts/sixth.jpg" draggable="false" alt="">
+                <img class="image image-track-img" src="http://www.dominiquekarreman.com/storage/posts/second.jpg" draggable="false" alt="">
+                <img class="image image-track-img" src="http://www.dominiquekarreman.com/storage/posts/fourth.jpeg" draggable="false" alt="">
+                <img class="image image-track-img" src="https://images.unsplash.com/photo-1599454100789-b211e369bd04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1606&q=80" draggable="false" alt="">
+                <img class="image image-track-img" src="https://images.unsplash.com/photo-1573523765924-e6c704ce8048?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" draggable="false" alt="">
+                <img class="image image-track-img" src="https://images.unsplash.com/photo-1595835018349-198460e1d309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80" draggable="false" alt="">
+                <img class="image image-track-img" src="https://images.unsplash.com/photo-1567196884944-1b4b8f630560?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" draggable="false" alt="">
             </div>
-
-        </div>
+       </div>
         <div id="About" class="section s3">
             <h1>About</h1>
         </div>

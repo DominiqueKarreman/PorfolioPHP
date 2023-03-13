@@ -49,20 +49,6 @@ body {
 .menu {
     margin-top: 25%;
 }
-@media (min-width: 640px) {
-    .drop {
-        -webkit-text-stroke: 0.3vh rgb(31, 31, 31);
-    }
-    .dropTouch {
-
-        color: rgb(255, 255, 255);
-        text-shadow: -1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(255, 255, 255),
-            1px 1px 0 rgb(255, 255, 255);
-    }
-    .menu {
-        margin-top: 0;
-    }
-}
 .midd {
     display: flex;
     justify-content: center;
@@ -73,7 +59,7 @@ body {
     position: absolute;
     /* background-color: #242424; */
     background: rgba(117, 117, 117, 0.48);
-
+    
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.2px);
     -webkit-backdrop-filter: blur(6.2px);
@@ -83,7 +69,7 @@ body {
 
     justify-content: center;
     place-items: center;
-
+    
     transition: 1s;
 }
 #top {
@@ -182,7 +168,7 @@ body {
 }
 .image-track {
     width: 40vmin;
-
+    
     height: 56vmin;
     object-fit: cover;
     object-position: 0% 50%;
@@ -198,7 +184,7 @@ body {
     top: 50%;
     transform: translate(0%, -50%);
 }
-.image-track > img {
+.image-track-img {
     pointer-events: none;
     width: 40vmin;
     height: 56vmin;
@@ -260,6 +246,160 @@ body {
     color: black;
     left: 0;
     top: 28vh;
-
+    
     transform: translate(-40vh, 0%);
+}
+.workButtonSm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5vh;
+    font-weight: 500;
+    /* text-shadow: 2px 2px 2px black; */
+    box-shadow: 2px 2px 2px black;
+    background-color: white;
+    /* font-family: "Gloock", serif; */
+    text-align: left;
+    padding: 2vh;
+    z-index: 1;
+    color: black;
+    left: 0;
+    top: 28vh;
+    display: none;
+    z-index: 1;
+}
+
+@media (min-width: 640px) {
+    .drop {
+        -webkit-text-stroke: 0.3vh rgb(31, 31, 31);
+    }
+    .dropTouch {
+
+        color: rgb(255, 255, 255);
+        text-shadow: -1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(255, 255, 255),
+            1px 1px 0 rgb(255, 255, 255);
+    }
+    .menu {
+        margin-top: 0;
+    }
+}
+@media (max-width: 640px) {
+    .image-track {
+        width: 100vw;
+    
+        height: 100vh;
+        object-fit: cover;
+        object-position: 0% 50%;
+    }
+.image-track {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 4vmin;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-y: hidden;
+    transform: translate(0%, 0%);
+}
+.image-track-img {
+    pointer-events: none;
+    width: 100vw;
+    height: 90vmin;
+    object-fit: cover;
+    object-position: center center;
+    
+    transition: 15s linear;
+}
+.image-track-img-down {
+    pointer-events: none;
+    width: 100vw;
+    height: 90vmin;
+    object-fit: cover;
+    object-position: center center;
+    transform: translate(0%, -500%);
+    transition: 20s linear;
+}
+.workTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 6vh;
+    font-weight: 800;
+    text-shadow: 2px 2px 2px black;
+    /* font-family: "Gloock", serif; */
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.workButtonSm {
+    position: absolute;
+
+    left: 50%;
+    transform: translate(-50%, 30vh);
+    font-size: 2.5vh;
+    font-weight: 500;
+    /* text-shadow: 2px 2px 2px black; */
+    box-shadow: 2px 2px 2px black;
+    background-color: white;
+    /* font-family: "Gloock", serif; */
+    text-align: left;
+    padding: 2vh;
+    z-index: 1;
+    color: black;
+
+    top: 28vh;
+    display: flex;
+    z-index: 1;
+}
+.workHero {
+    position: absolute;
+    font-size: 6vh;
+    font-weight: 800;
+    text-shadow: 2px 2px 2px black;
+    /* font-family: "Gloock", serif; */
+    text-align: left;
+    width: 100%;
+    z-index: 1;
+    color: white;
+    left: 0;
+    display: none;
+    transform: translate(-100%, 50%);
+}
+.workBody {
+    display: none;
+    position: absolute;
+    font-size: 3vh;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px black;
+    /* font-family: "Gloock", serif; */
+    text-align: left;
+    width: 100%;
+    z-index: 1;
+    color: white;
+    left: 0;
+    top: 12vh;
+    transform: translate(-98%, 0%);
+}
+.workButton {
+    position: absolute;
+    display: none;
+    font-size: 2.5vh;
+    font-weight: 500;
+    /* text-shadow: 2px 2px 2px black; */
+    box-shadow: 2px 2px 2px black;
+    background-color: white;
+    /* font-family: "Gloock", serif; */
+    text-align: left;
+    padding: 2vh;
+    z-index: 1;
+    color: black;
+    left: 0;
+    top: 28vh;
+    
+    transform: translate(-40vh, 0%);
+}
 }

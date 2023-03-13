@@ -29,10 +29,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("A18082004"),
         ]);
 
-        Listing::create([
-            'title' => 'My first listing',
-            'description' => 'This is my first listing'
-        ]);
+   
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
