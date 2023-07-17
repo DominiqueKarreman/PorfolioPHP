@@ -108,10 +108,13 @@
             </div>
         </div>
         <div class="overflow-hidden2">
+            <div id="nameTekening" class="absolute w-[100vw] flex flex-col items-center justify-center top-[90vh]"
+                style="opacity: 0; transform:translateY(10vh); transition: 2s ease">
 
-            <h1 id="name" style="opacity: 0; transform:translateY(10vh); transition: 2s ease"
-                class="drop-in-9 text-white text-[1.5rem] font-black absolute w-full top-[85vh] italic">DOMINIQUE
-                KARREMAN</h1>
+                <img src="/images/handtekening.png" class="absolute drop-in-9 bottom-[5vh] w-[15vh]" alt="">
+                <h1 id="name" class="drop-in-9 text-white text-[1.5rem] font-black absolute italic">DOMINIQUE
+                    KARREMAN</h1>
+            </div>
         </div>
         </div>
         <div id="trackBackground" class="">

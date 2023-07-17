@@ -83,7 +83,7 @@ window.ontouchmove = e => handleOnMove(e.touches[0]);
 
 window.onload = () => {
     const body = document.querySelector('body');
-    const name = document.querySelector('#name');
+    const name = document.querySelector('#nameTekening');
     name.style.opacity = '1';
     name.style.transform = 'translate(0, 0)';
     body.style.opacity = '1';
