@@ -26,7 +26,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-observer.observe(imageTrack);
+observer.observe(recentTitle);
 
 
 const track = document.getElementById("image-track");
