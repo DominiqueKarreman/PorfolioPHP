@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -53,6 +54,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/photography', function () {
     return view('photography.home');
+});
+Route::get('/photography2', function () {
+    return view('photography.home2');
 });
 Route::get('/test', function () {
     return view('photography.test');

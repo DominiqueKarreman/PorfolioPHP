@@ -40,10 +40,10 @@ body {
     text-transform: uppercase;
     color: transparent;
 
-    
+
     text-shadow: -1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(0, 0, 0),
         1px -1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
-    
+
     transition: 1s;
 }
 .menu {
@@ -59,7 +59,7 @@ body {
     position: absolute;
     /* background-color: #242424; */
     background: rgba(117, 117, 117, 0.48);
-    
+
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.2px);
     -webkit-backdrop-filter: blur(6.2px);
@@ -69,7 +69,7 @@ body {
 
     justify-content: center;
     place-items: center;
-    
+
     transition: 1s;
 }
 #top {
@@ -164,11 +164,11 @@ body {
 
 #work {
     margin: 0rem;
-    overflow: hidden;
+
 }
 .image-track {
     width: 40vmin;
-    
+
     height: 56vmin;
     object-fit: cover;
     object-position: 0% 50%;
@@ -246,7 +246,7 @@ body {
     color: black;
     left: 0;
     top: 28vh;
-    
+
     transform: translate(-40vh, 0%);
 }
 .workButtonSm {
@@ -287,7 +287,7 @@ body {
 @media (max-width: 640px) {
     .image-track {
         width: 100vw;
-    
+
         height: 100vh;
         object-fit: cover;
         object-position: 0% 50%;
@@ -309,7 +309,7 @@ body {
     height: 90vmin;
     object-fit: cover;
     object-position: center center;
-    
+
     transition: 15s linear;
 }
 .image-track-img-down {
@@ -399,7 +399,7 @@ body {
     color: black;
     left: 0;
     top: 28vh;
-    
+
     transform: translate(-40vh, 0%);
 }
 }
