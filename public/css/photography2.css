@@ -417,3 +417,8 @@ html {
      transform: translate(0px);
     }
    }
+
+   .blur2 {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
